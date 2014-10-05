@@ -1,0 +1,5 @@
+D:\GitHub\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.csprojResolveAssemblyReference.cache
+D:\GitHub\Experiments\SelfmadeIoC\bin\Debug\SelfmadeIoC.dll
+D:\GitHub\Experiments\SelfmadeIoC\bin\Debug\SelfmadeIoC.pdb
+D:\GitHub\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.dll
+D:\GitHub\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.pdb

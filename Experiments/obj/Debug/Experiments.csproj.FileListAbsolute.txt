@@ -1,0 +1,6 @@
+D:\GitHub\Experiments\Experiments\bin\Debug\Experiments.exe.config
+D:\GitHub\Experiments\Experiments\bin\Debug\Experiments.exe
+D:\GitHub\Experiments\Experiments\bin\Debug\Experiments.pdb
+D:\GitHub\Experiments\Experiments\obj\Debug\Experiments.csprojResolveAssemblyReference.cache
+D:\GitHub\Experiments\Experiments\obj\Debug\Experiments.exe
+D:\GitHub\Experiments\Experiments\obj\Debug\Experiments.pdb
