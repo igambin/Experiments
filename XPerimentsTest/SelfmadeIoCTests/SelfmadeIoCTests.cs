@@ -78,8 +78,5 @@ namespace XPerimentsTest.SelfmadeIoCTests
             Console.WriteLine(processor2.CheckExhaust());
 
         }
-
-
-
     }
 }

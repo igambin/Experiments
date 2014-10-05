@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,31 +13,8 @@ namespace SelfmadeIoC
 
         private Dictionary<Type, object> providers = new Dictionary<Type, object>();
 
-        #region provider-Type-Registrations
+        #region LVL1 - provider-Instance-Registrations
 
-        public void Register<TKey, TType>()
-        {
-            if (providers.ContainsKey(typeof(TKey)))
-            {
-                throw new TypeAlreadyRegisteredException();
-            }
-
-            providers.Add(typeof(TKey), typeof(TType));
-            
-        }
-
-        public void Reregister<TKey, TType>()
-        {
-            if (!providers.ContainsKey(typeof(TKey)))
-            {
-                throw new TypeNotRegisteredException();
-            }
-
-            providers[typeof(TKey)] = typeof(TType);
-        }
-        #endregion
-
-        #region provider-Instance-Registrations
         public void Register<T>(T instance)
         {
             if (providers.ContainsKey(typeof(T)))
@@ -56,8 +34,34 @@ namespace SelfmadeIoC
 
             providers[typeof(T)] = instance;
         }
+        
         #endregion
 
+        #region LVL2 - provider-Type-Registrations
+
+        public void Register<TKey, TType>() where TType : TKey
+        {
+            if (providers.ContainsKey(typeof(TKey)))
+            {
+                throw new TypeAlreadyRegisteredException();
+            }
+
+            providers.Add(typeof(TKey), typeof(TType));
+            
+        }
+
+        public void Reregister<TKey, TType>() where TType : TKey
+        {
+            if (!providers.ContainsKey(typeof(TKey)))
+            {
+                throw new TypeNotRegisteredException();
+            }
+
+            providers[typeof(TKey)] = typeof(TType);
+        }
+
+        #endregion
+        
         #region provider-Unregistration
         public void Unregister<T>()
         {
@@ -84,21 +88,21 @@ namespace SelfmadeIoC
 
             object toResolve = providers[t];
 
-            var type = toResolve as Type;
-            if (type == null)
+            var type1 = toResolve as Type;
+
+            if (type1 == null)
             {
                 return toResolve;
             }
 
-            
             ConstructorInfo cinfo;
             if (name != null)
             {
-                cinfo = type.GetConstructors().FindByName(name);
+                cinfo = type1.GetConstructors().FindByName(name);
             }
             else
             {
-                cinfo = type.GetConstructors().FirstOrDefault();
+                cinfo = type1.GetConstructors().FirstOrDefault();
             }
 
             ParameterInfo[] args = cinfo.GetParameters();
