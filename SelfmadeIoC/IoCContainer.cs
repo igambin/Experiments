@@ -101,14 +101,15 @@ namespace SelfmadeIoC
                 cinfo = type.GetConstructors().FirstOrDefault();
             }
 
-            Type[] args = cinfo.GetGenericArguments();
+            ParameterInfo[] args = cinfo.GetParameters();
+
             if (args.Count() == 0)
             {
                 return Activator.CreateInstance((Type)toResolve);
             }
 
 
-            return cinfo.Invoke(args.Select(x => ResolveType(x)).ToArray());
+            return cinfo.Invoke(args.Select(x => ResolveType(x.ParameterType)).ToArray());
 
             
         }

@@ -1,15 +1,16 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using XPerimentsTest.SelfmadeIoCTests.Environment;
 using SelfmadeIoC;
+using NUnit;
+using NUnit.Framework;
 
 namespace XPerimentsTest.SelfmadeIoCTests
 {
-    [TestClass]
+    [TestFixture]
     public class SelfmadeIoCTests
     {
         
-        [TestMethod]
+        [Test]
         public void RegisterDateTimeInstance()
         {
             IoCContainer container = new IoCContainer();
@@ -21,7 +22,7 @@ namespace XPerimentsTest.SelfmadeIoCTests
             Assert.AreEqual(new DateTime(2000, 1, 1), date);
         }
 
-        [TestMethod]
+        [Test]
         public void RegisterIVehicleAndIMotor()
         {
             IoCContainer container = new IoCContainer();
@@ -31,7 +32,54 @@ namespace XPerimentsTest.SelfmadeIoCTests
 
             var vehicle = container.Resolve<IVehicle>();
 
-            Assert.AreEqual("This truck's exhaust strinks.", vehicle.Smells());
+            Assert.AreEqual("This truck's exhaust stinks.", vehicle.Smells());
         }
+
+        [Test]
+        public void RegisterDefaultStringInstance()
+        {
+            IoCContainer container = new IoCContainer();
+
+            container.Register<String>("String always defaults to this string.");
+
+            var str = container.Resolve<String>();
+
+            Assert.AreEqual("String always defaults to this string.", str);
+        }
+
+        [Test]
+        public void RegisterNormalPocoClass()
+        {
+            IoCContainer container = new IoCContainer();
+
+            container.Register<CarProcessor, CarProcessor>();
+
+            var processor = container.Resolve<CarProcessor>();
+
+            Assert.AreEqual("CarProcessor", processor.GetType().Name);
+        }
+
+        [Test]
+        public void RegisterResolvableConstructorWithName()
+        {
+            IoCContainer container = new IoCContainer();
+
+            container.Register<CarProcessor, CarProcessor>();
+            container.Register<IVehicle, MotorBike>();
+            container.Register<IMotor, UnleadedMotor>();
+
+            var processor1 = container.Resolve<CarProcessor>();
+            var processor2 = container.Resolve<CarProcessor>("WithVehicle");
+
+            Assert.IsNull(processor1.Vehicle);
+
+            Assert.AreEqual("This motorbike's exhaust smells normal.", processor2.CheckExhaust());
+
+            Console.WriteLine(processor2.CheckExhaust());
+
+        }
+
+
+
     }
 }

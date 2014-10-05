@@ -5,3 +5,5 @@ D:\GitHub\Experiments\XPerimentsTest\obj\Debug\XPerimentsTest.dll
 D:\GitHub\Experiments\XPerimentsTest\obj\Debug\XPerimentsTest.pdb
 D:\GitHub\Experiments\XPerimentsTest\bin\Debug\SelfmadeIoC.dll
 D:\GitHub\Experiments\XPerimentsTest\bin\Debug\SelfmadeIoC.pdb
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\nunit.framework.dll
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\nunit.framework.xml
