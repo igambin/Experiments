@@ -79,7 +79,15 @@ namespace SelfmadeIoC
         {
             if (!providers.ContainsKey(t))
             {
-                throw new TypeNotRegisteredException();
+                try
+                {
+                    // Type is not registered
+                    return TryToFindAndResolveTypeAnyway(t, name);
+                }
+                catch (Exception e)
+                {
+                    throw new TypeNotRegisteredException(e);
+                }
             }
 
             object toResolve = providers[t];
@@ -90,7 +98,13 @@ namespace SelfmadeIoC
                 return toResolve;
             }
 
-            
+            return TryToFindAndResolveTypeAnyway(type, name);
+        }
+
+
+
+        private object TryToFindAndResolveTypeAnyway(Type type, string name)
+        {
             ConstructorInfo cinfo;
             if (name != null)
             {
@@ -105,12 +119,10 @@ namespace SelfmadeIoC
 
             if (args.Count() == 0)
             {
-                return Activator.CreateInstance((Type)toResolve);
+                return Activator.CreateInstance(type);
             }
 
-
-            return cinfo.Invoke(args.Select(x => ResolveType(x.ParameterType)).ToArray());
-
+            return cinfo.Invoke(args.Select(x => ResolveType(x.ParameterType)).ToArray());  
             
         }
         
