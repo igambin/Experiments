@@ -3,6 +3,7 @@ using XPerimentsTest.SelfmadeIoCTests.Environment;
 using SelfmadeIoC;
 using NUnit;
 using NUnit.Framework;
+using System.IO;
 
 namespace XPerimentsTest.SelfmadeIoCTests
 {
@@ -76,6 +77,26 @@ namespace XPerimentsTest.SelfmadeIoCTests
             Assert.AreEqual("This motorbike's exhaust smells normal.", processor2.CheckExhaust());
 
             Console.WriteLine(processor2.CheckExhaust());
+
+        }
+        [Test]
+        public void RegisterResolvableUnregisteredType()
+        {
+            IoCContainer container = new IoCContainer();
+
+            var processor1 = container.Resolve<MemoryStream>();
+
+            Assert.IsInstanceOf<MemoryStream>(processor1);
+            Assert.AreEqual(processor1.Length, 0);
+        }
+
+        [Test]
+        [ExpectedException(typeof(TypeNotRegisteredException))]
+        public void RegisterUnresolvableUnregisteredType()
+        {
+            IoCContainer container = new IoCContainer();
+
+            var processor1 = container.Resolve<DateTime>();
 
         }
     }
