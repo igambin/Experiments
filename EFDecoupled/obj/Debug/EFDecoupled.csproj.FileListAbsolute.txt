@@ -1,0 +1,5 @@
+D:\GitHub\Experiments\EFDecoupled\bin\Debug\EFDecoupled.dll
+D:\GitHub\Experiments\EFDecoupled\bin\Debug\EFDecoupled.pdb
+D:\GitHub\Experiments\EFDecoupled\obj\Debug\EFDecoupled.csprojResolveAssemblyReference.cache
+D:\GitHub\Experiments\EFDecoupled\obj\Debug\EFDecoupled.dll
+D:\GitHub\Experiments\EFDecoupled\obj\Debug\EFDecoupled.pdb
