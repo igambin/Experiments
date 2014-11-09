@@ -24,6 +24,20 @@ namespace XPerimentsTest.SelfmadeIoCTests
         }
 
         [Test]
+        public void ReregisterDateTimeInstance()
+        {
+            IoCContainer container = new IoCContainer();
+
+            container.Register<DateTime>(new DateTime(2000, 1, 1));
+
+            container.Register<DateTime>(new DateTime(2010, 1, 1));
+
+            var date = container.Resolve<DateTime>();
+
+            Assert.AreEqual(new DateTime(2010, 1, 1), date);
+        }
+
+        [Test]
         public void RegisterIVehicleAndIMotor()
         {
             IoCContainer container = new IoCContainer();

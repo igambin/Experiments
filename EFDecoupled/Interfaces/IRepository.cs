@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Experiments.Interfaces;
 
-namespace EFDecoupled
+namespace EFDecoupled.Interfaces
 {
     public interface IRepository<TEntity, TId> where TEntity : class, IEntity<TId>
     {

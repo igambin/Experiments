@@ -19,50 +19,31 @@ namespace SelfmadeIoC
         {
             if (providers.ContainsKey(typeof(T)))
             {
-                throw new TypeAlreadyRegisteredException();
+                providers.Remove(typeof(T));
             }
 
             providers.Add(typeof(T), instance);
         }
 
-        public void Reregister<T>(T instance)
-        {
-            if (!providers.ContainsKey(typeof(T)))
-            {
-                throw new TypeNotRegisteredException();
-            }
-
-            providers[typeof(T)] = instance;
-        }
-        
         #endregion
 
-        #region LVL2 - provider-Type-Registrations
+        #region LVL2 - provider-Type-Registration
 
         public void Register<TKey, TType>() where TType : TKey
         {
             if (providers.ContainsKey(typeof(TKey)))
             {
-                throw new TypeAlreadyRegisteredException();
+                providers.Remove(typeof(TKey));
             }
 
             providers.Add(typeof(TKey), typeof(TType));
             
         }
 
-        public void Reregister<TKey, TType>() where TType : TKey
-        {
-            if (!providers.ContainsKey(typeof(TKey)))
-            {
-                throw new TypeNotRegisteredException();
-            }
-
-            providers[typeof(TKey)] = typeof(TType);
-        }
-
         #endregion
         
         #region provider-Unregistration
+
         public void Unregister<T>()
         {
             if (!providers.ContainsKey(typeof(T)))
@@ -72,6 +53,7 @@ namespace SelfmadeIoC
 
             providers.Remove(typeof(T));
         }
+
         #endregion
 
         public T Resolve<T>(string name = null)
@@ -96,9 +78,9 @@ namespace SelfmadeIoC
 
             object toResolve = providers[t];
 
-            var type1 = toResolve as Type;
+            var type = toResolve as Type;
 
-            if (type1 == null)
+            if (type == null)
             {
                 return toResolve;
             }
@@ -112,11 +94,11 @@ namespace SelfmadeIoC
             ConstructorInfo cinfo;
             if (name != null)
             {
-                cinfo = type1.GetConstructors().FindByName(name);
+                cinfo = type.GetConstructors().FindByName(name);
             }
             else
             {
-                cinfo = type1.GetConstructors().FirstOrDefault();
+                cinfo = type.GetConstructors().FirstOrDefault();
             }
 
             ParameterInfo[] args = cinfo.GetParameters();

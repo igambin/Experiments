@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Experiments.Interfaces
+namespace EFDecoupled.Interfaces
 {
     public interface IEntity<T>
     {
