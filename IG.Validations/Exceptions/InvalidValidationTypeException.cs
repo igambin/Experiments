@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using IG.Validations.Resources;
 
-namespace Experiments
+namespace IG.Validations.Exceptions
 {
-    class Program
+    public class InvalidValidationTypeException : Exception
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }

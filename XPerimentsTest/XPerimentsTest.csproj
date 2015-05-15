@@ -71,6 +71,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BoundariesTests\BoundaryTests.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\Truck.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\CarProcessor.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\DieselMotor.cs" />
@@ -82,6 +83,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BoundariesII\BoundariesII.csproj">
+      <Project>{827b2a93-6450-4bb8-bb60-d99ce9891961}</Project>
+      <Name>BoundariesII</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BoundariesI\BoundariesI.csproj">
+      <Project>{db8d365f-7bd0-430f-af92-282e3a7583ff}</Project>
+      <Name>BoundariesI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EFDecoupled\EFDecoupled.csproj">
+      <Project>{275d8df0-1654-4453-91e9-5287288866ed}</Project>
+      <Name>EFDecoupled</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SelfmadeIoC\SelfmadeIoC.csproj">
       <Project>{049c490a-b080-4b5d-a29b-54b59601356e}</Project>
       <Name>SelfmadeIoC</Name>

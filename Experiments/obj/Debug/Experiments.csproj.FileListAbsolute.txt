@@ -10,3 +10,5 @@ C:\Source\Experiments\Experiments\bin\Debug\Experiments.pdb
 C:\Source\Experiments\Experiments\obj\Debug\Experiments.csprojResolveAssemblyReference.cache
 C:\Source\Experiments\Experiments\obj\Debug\Experiments.exe
 C:\Source\Experiments\Experiments\obj\Debug\Experiments.pdb
+D:\GitHub\Experiments\Experiments\bin\Debug\IG.Validations.dll
+D:\GitHub\Experiments\Experiments\bin\Debug\IG.Validations.pdb

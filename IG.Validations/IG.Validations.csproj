@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8058577A-9EE0-4229-BE42-FC78E062C7C1}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{9734762D-E0BC-49FA-97BD-AC59ECBB463D}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Experiments</RootNamespace>
-    <AssemblyName>Experiments</AssemblyName>
+    <RootNamespace>IG.Validations</RootNamespace>
+    <AssemblyName>IG.Validations</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,17 +39,54 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Exceptions\InvalidValidationTypeException.cs" />
+    <Compile Include="MessageType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequiredPreConstraintsAttribute.cs" />
+    <Compile Include="Resources\Messages.cs">
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ResX.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ResX.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Warnings.cs">
+      <DependentUpon>Warnings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ValidationBase.cs" />
+    <Compile Include="ValidationClassAttribute.cs" />
+    <Compile Include="ValidationCollection.cs" />
+    <Compile Include="ValidationMessage.cs" />
+    <Compile Include="ValidationResult.cs" />
+    <Compile Include="ValidatorBase.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <EmbeddedResource Include="Resources\Warnings.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IG.Validations\IG.Validations.csproj">
-      <Project>{9734762D-E0BC-49FA-97BD-AC59ECBB463D}</Project>
-      <Name>IG.Validations</Name>
+    <None Include="Resources\ResX.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ResX.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourceAssistant\ResourceAssistant.csproj">
+      <Project>{d6a36ccf-680b-4510-bf36-ec56ca8f244c}</Project>
+      <Name>ResourceAssistant</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

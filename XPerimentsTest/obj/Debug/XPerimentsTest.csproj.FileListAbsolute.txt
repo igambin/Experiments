@@ -16,3 +16,9 @@ C:\Source\Experiments\XPerimentsTest\bin\Debug\SelfmadeIoC.pdb
 C:\Source\Experiments\XPerimentsTest\bin\Debug\nunit.framework.xml
 C:\Source\Experiments\XPerimentsTest\obj\Debug\XPerimentsTest.dll
 C:\Source\Experiments\XPerimentsTest\obj\Debug\XPerimentsTest.pdb
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\BoundariesI.dll
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\BoundariesII.dll
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\EFDecoupled.dll
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\BoundariesII.pdb
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\BoundariesI.pdb
+D:\GitHub\Experiments\XPerimentsTest\bin\Debug\EFDecoupled.pdb

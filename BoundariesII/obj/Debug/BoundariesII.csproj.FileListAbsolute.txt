@@ -1,0 +1,7 @@
+D:\GitHub\Experiments\BoundariesII\bin\Debug\BoundariesII.dll
+D:\GitHub\Experiments\BoundariesII\bin\Debug\BoundariesII.pdb
+D:\GitHub\Experiments\BoundariesII\bin\Debug\BoundariesI.dll
+D:\GitHub\Experiments\BoundariesII\bin\Debug\BoundariesI.pdb
+D:\GitHub\Experiments\BoundariesII\obj\Debug\BoundariesII.csprojResolveAssemblyReference.cache
+D:\GitHub\Experiments\BoundariesII\obj\Debug\BoundariesII.dll
+D:\GitHub\Experiments\BoundariesII\obj\Debug\BoundariesII.pdb
