@@ -1,5 +1,0 @@
-D:\GitHub\Experiments\ResourceAssistant\bin\Debug\ResourceAssistant.dll
-D:\GitHub\Experiments\ResourceAssistant\bin\Debug\ResourceAssistant.pdb
-D:\GitHub\Experiments\ResourceAssistant\obj\Debug\ResourceAssistant.csprojResolveAssemblyReference.cache
-D:\GitHub\Experiments\ResourceAssistant\obj\Debug\ResourceAssistant.dll
-D:\GitHub\Experiments\ResourceAssistant\obj\Debug\ResourceAssistant.pdb

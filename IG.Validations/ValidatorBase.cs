@@ -120,7 +120,7 @@ namespace IG.Validations
                     {
                         var quelle = new List<string>
                         {
-                            String.Format("PlausiID {0}", validationInstance.ErrorId.ToString(CultureInfo.CurrentCulture)),
+                            String.Format("ValidationId {0}", validationInstance.ErrorId.ToString(CultureInfo.CurrentCulture)),
                             String.Format("{0}", GetType().FullName)
                         };
                         quelle.AddRange(validationInstance.Quelle);
