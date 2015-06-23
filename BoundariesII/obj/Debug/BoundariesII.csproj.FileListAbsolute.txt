@@ -5,3 +5,10 @@ D:\GitHub\Experiments\BoundariesII\bin\Debug\BoundariesI.pdb
 D:\GitHub\Experiments\BoundariesII\obj\Debug\BoundariesII.csprojResolveAssemblyReference.cache
 D:\GitHub\Experiments\BoundariesII\obj\Debug\BoundariesII.dll
 D:\GitHub\Experiments\BoundariesII\obj\Debug\BoundariesII.pdb
+D:\Repositories\Experiments\BoundariesII\bin\Debug\BoundariesII.dll
+D:\Repositories\Experiments\BoundariesII\bin\Debug\BoundariesII.pdb
+D:\Repositories\Experiments\BoundariesII\bin\Debug\BoundariesI.dll
+D:\Repositories\Experiments\BoundariesII\bin\Debug\BoundariesI.pdb
+D:\Repositories\Experiments\BoundariesII\obj\Debug\BoundariesII.csprojResolveAssemblyReference.cache
+D:\Repositories\Experiments\BoundariesII\obj\Debug\BoundariesII.dll
+D:\Repositories\Experiments\BoundariesII\obj\Debug\BoundariesII.pdb

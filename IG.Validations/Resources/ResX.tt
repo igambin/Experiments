@@ -10,7 +10,7 @@
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
-<#
+<# 
     string path = Host.ResolvePath("");
     var files = Directory.GetFiles(path).Where(x => x.EndsWith(".resx"));
     Regex classNamePattern = new Regex(@".*\\(?<filename>.+)\.resx");

@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="InvalidValidationType" xml:space="preserve">
-    <value>Invalid Validationtype {0}</value>
-    <comment>@id(100)</comment>
+    <value>Der Typ '{0}' ist keine gültige Validationsklasse!</value>
+    <comment>@id(101) @params(string)</comment>
   </data>
-  <data name="TestTemplate" xml:space="preserve">
-    <value>Hallo {0} {1} {2}</value>
-    <comment>@params(string, int, DateTime)</comment>
+  <data name="MissingValidConstructorInValidation" xml:space="preserve">
+    <value>Die Validationsklasse '{0}' enthält keinen gültigen Konstruktor!</value>
+    <comment>@id(100) @params(string)</comment>
   </data>
 </root>

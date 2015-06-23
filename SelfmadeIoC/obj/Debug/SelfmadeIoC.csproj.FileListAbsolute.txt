@@ -8,3 +8,7 @@ C:\Source\Experiments\SelfmadeIoC\bin\Debug\SelfmadeIoC.pdb
 C:\Source\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.csprojResolveAssemblyReference.cache
 C:\Source\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.dll
 C:\Source\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.pdb
+D:\Repositories\Experiments\SelfmadeIoC\bin\Debug\SelfmadeIoC.dll
+D:\Repositories\Experiments\SelfmadeIoC\bin\Debug\SelfmadeIoC.pdb
+D:\Repositories\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.dll
+D:\Repositories\Experiments\SelfmadeIoC\obj\Debug\SelfmadeIoC.pdb

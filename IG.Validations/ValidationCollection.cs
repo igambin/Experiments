@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Remoting.Messaging;
 using IG.Validations.Exceptions;
+using System.Runtime.InteropServices;
+using IG.Validations.Resources;
 
 namespace IG.Validations
 {
@@ -41,37 +43,43 @@ namespace IG.Validations
         #region ctor
 
         /// <summary>
-        /// Instanziiere eine neue typisierte ValidationCollection. Dabei können optional zusätzliche Inforamtionen angegeben werden.
+        /// Instanziiere eine neue typisierte ValidationCollection. Dabei können optional zusätzliche Inforamtionen angegeben werden. 
+        /// WICHTIG: Werden keine Assemblies angegeben, muss die Liste der auszuführenden Validierungen explizit angegeben werden.
         /// </summary>
         /// <param name="validatedObject">Das zu validierende Objekt (pflicht)</param>
-        /// <param name="assemblies">Ein Array von den Assemblies, in welchen nach Validierungsregeln gesucht wird. (default: "CallingAssembly")</param>
         /// <param name="types">Ein Array von Typen, welche "Kind"-Klassen des ValidationClassAttribute sind und eine Menge von Validierungen attributiert. (default: "ValidationClassAttribute")</param>
         /// <param name="settings">Ein Dictionary mit Validierungsrelevanten Key/Value-Paaren, die so initialisiert übernommen wird. (default: Leeres Dictionary&lt;string,object&gt;>)</param>
-        public ValidationCollection(TValidatedObject validatedObject, IEnumerable<Type> types, IEnumerable<Assembly> assemblies, Dictionary<string, object> settings )
+        /// <param name="assemblies">Ein Array von den Assemblies, in welchen nach Validierungsregeln gesucht wird. (default: "CallingAssembly")</param>
+        public ValidationCollection(TValidatedObject validatedObject, IEnumerable<Type> types, Dictionary<string, object> settings, [Optional] IEnumerable<Assembly> assemblies)
         {
             _validatedObject = validatedObject;
-            _validationAssemblies = assemblies.ToArray();
             _validationEnvironmentSettings = settings;
 
-            _validationTypes = new List<Type>();
-            foreach (var type in types)
+            if (assemblies != null)
             {
-                if (    type==typeof(ValidationClassAttribute)
-                    ||  type.IsSubclassOf(typeof (ValidationClassAttribute)))
+                _validationAssemblies = assemblies.ToArray();
+                _validationTypes = new List<Type>();
+                foreach (var type in types)
                 {
-                    _validationTypes.Add(type);
+                    if (type == typeof(ValidationClassAttribute)
+                        || type.IsSubclassOf(typeof(ValidationClassAttribute)))
+                    {
+                        _validationTypes.Add(type);
+                    }
+                    else
+                    {
+                        throw new InvalidValidationTypeException(type);
+                    }
                 }
-                else
-                {
-                    //TODO
-                    //Messages.InvalidValidationTypeWriteLog(type.Name);
-                    throw new InvalidValidationTypeException();//Messages.InvalidValidationType(type.Name));
-                }
+                _validations = new Dictionary<Type, ValidationBase<TValidatedObject>>();
+                GetValidationClasses().ToList().ForEach(AddValidationToCollection);
             }
-            
-            _validations = new Dictionary<Type, ValidationBase<TValidatedObject>>();
-            GetValidationClasses().ToList().ForEach(AddValidationToCollection);
+            else
+            {
+                types.ToList().ForEach(AddValidationToCollection);
+            }
         }
+
         #endregion
 
         /// <summary>
@@ -184,7 +192,7 @@ namespace IG.Validations
             }
             catch (Exception e)
             {
-                // TODO Messages.MissingValidConstructorInValidationClassWriteLog(constraintType.Name, e);
+                throw new MissingConstructorInValidationException(constraintType, e);
             }
         }
 

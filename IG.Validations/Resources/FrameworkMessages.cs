@@ -25,14 +25,14 @@ namespace IG.Validations.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Messages 
+    public class FrameworkMessages 
     {
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Messages() {
+        internal FrameworkMessages() {
         }
         
         /// <summary>
@@ -42,7 +42,7 @@ namespace IG.Validations.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IG.Validations.Resources.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IG.Validations.Resources.FrameworkMessages", typeof(FrameworkMessages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -77,33 +77,42 @@ namespace IG.Validations.Resources {
         /// </summary>
         public static int InvalidValidationTypeId {
             get {
-                return 100;
+                return 101;
             }
         }
 
         /// <summary>
         ///   Looks up the formatable string for the resource 'InvalidValidationType' inserts passed arguments
         /// </summary>
-        public static string InvalidValidationTypeFormat(object arg0) {
+        public static string InvalidValidationTypeFormat(string arg0) {
             var fString = ResourceManager.GetString("InvalidValidationType", resourceCulture);
             return String.Format(fString, arg0);
         }
 
         /// <summary>
-        ///   Looks up a localized string for the resource 'TestTemplate'.
+        ///   Looks up a localized string for the resource 'MissingValidConstructorInValidation'.
         /// </summary>
-        public static string TestTemplate {
+        public static string MissingValidConstructorInValidation {
             get {
-                return ResourceManager.GetString("TestTemplate", resourceCulture);
+                return ResourceManager.GetString("MissingValidConstructorInValidation", resourceCulture);
             }
         }
 
         /// <summary>
-        ///   Looks up the formatable string for the resource 'TestTemplate' inserts passed arguments
+        ///   Looks up the id for the resource 'MissingValidConstructorInValidation'.
         /// </summary>
-        public static string TestTemplateFormat(string arg0, int arg1, DateTime arg2) {
-            var fString = ResourceManager.GetString("TestTemplate", resourceCulture);
-            return String.Format(fString, arg0, arg1, arg2);
+        public static int MissingValidConstructorInValidationId {
+            get {
+                return 100;
+            }
+        }
+
+        /// <summary>
+        ///   Looks up the formatable string for the resource 'MissingValidConstructorInValidation' inserts passed arguments
+        /// </summary>
+        public static string MissingValidConstructorInValidationFormat(string arg0) {
+            var fString = ResourceManager.GetString("MissingValidConstructorInValidation", resourceCulture);
+            return String.Format(fString, arg0);
         }
 
 

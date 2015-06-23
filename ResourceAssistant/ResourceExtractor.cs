@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace ResourceAssistant
 {
-    public static class ResourceExtractor
+    public static class ResourceHelper
     {
+        private static Dictionary<string, byte[]> _resourceCache = new Dictionary<string, byte[]>();
 
         /// <summary>
         /// Gets all ResourceNames of the calling assembly or the assembly given as argument
@@ -23,14 +24,14 @@ namespace ResourceAssistant
         } 
 
         /// <summary>
-        /// Will read files marked as "EmbeddedResource" from the directory "Resources" of the calling Assembly
+        /// Will read files marked as "EmbeddedResource" from the directory "ResourceHelper" of the calling Assembly
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename)
+        public static byte[] ExtractResource(String filename, bool cache = true)
         {
             var assembly = Assembly.GetCallingAssembly();
-            return ExtractResource(filename, assembly, null);
+            return ExtractResource(filename, assembly, null, cache);
         }
 
         /// <summary>
@@ -39,22 +40,22 @@ namespace ResourceAssistant
         /// <param name="filename"></param>
         /// <param name="resourceDirectory"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, string resourceDirectory)
+        public static byte[] ExtractResource(String filename, string resourceDirectory, bool cache = true)
         {
             var assembly = Assembly.GetCallingAssembly();
-            return ExtractResource(filename, assembly, resourceDirectory);
+            return ExtractResource(filename, assembly, resourceDirectory, cache);
         }
 
 
         /// <summary>
-        /// Will read files marked as "EmbeddedResource" from the directory "Resources" of the given Assembly
+        /// Will read files marked as "EmbeddedResource" from the directory "ResourceHelper" of the given Assembly
         /// </summary>
         /// <param name="filename"></param>
         /// <param name="assembly"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, Assembly assembly)
+        public static byte[] ExtractResource(String filename, Assembly assembly, bool cache = true)
         {
-            return ExtractResource(filename, assembly, null);
+            return ExtractResource(filename, assembly, null, cache);
         }
 
         /// <summary>
@@ -64,37 +65,33 @@ namespace ResourceAssistant
         /// <param name="assembly"></param>
         /// <param name="resourceDirectory"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, Assembly assembly, string resourceDirectory)
+        public static byte[] ExtractResource(String filename, Assembly assembly, string resourceDirectory, bool cache)
         {
             resourceDirectory = resourceDirectory ?? "Resources";
 
-            using (Stream resFilestream = assembly.GetManifestResourceStream(String.Format("{0}.{1}.{2}", assembly.GetName().Name, resourceDirectory, filename)))
+            var resourceKey = String.Format("{0}.{1}.{2}", assembly.GetName().Name, resourceDirectory, filename);
+
+            var ba = new byte[] { };
+
+            if (_resourceCache.ContainsKey(resourceKey))
             {
-                if (resFilestream == null) return null;
-                var ba = new byte[resFilestream.Length];
-                resFilestream.Read(ba, 0, ba.Length);
-                return ba;
+                ba = _resourceCache[resourceKey];
             }
+            else
+            {
+                using (Stream resFilestream = assembly.GetManifestResourceStream(resourceKey))
+                {
+                    if (resFilestream == null) return null;
+                    ba = new byte[resFilestream.Length];
+                    resFilestream.Read(ba, 0, ba.Length);
+                    if (cache)
+                    {
+                        _resourceCache[resourceKey] = ba;
+                    }
+                }
+            }
+            return ba;
         }
 
-        /// <summary>
-        /// Transforms Byte[] to String
-        /// </summary>
-        /// <param name="bytes"></param>
-        /// <returns></returns>
-        public static string AsString(this byte[] bytes)
-        {
-            return Encoding.UTF8.GetString(bytes);
-        }
-
-        /// <summary>
-        /// Transforms String to Byte[]
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns></returns>
-        public static byte[] AsByteArray(this string data)
-        {
-            return Encoding.UTF8.GetBytes(data);
-        }
     }
 }

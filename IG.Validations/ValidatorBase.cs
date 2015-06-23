@@ -81,8 +81,27 @@ namespace IG.Validations
 
             _validationEnvironmentSettings = validationEnvironmentSettings ?? new Dictionary<string, object>();
 
-            _validationCollection = new ValidationCollection<TValidatedObject>(ValidatedObject, _validationTypes.ToArray(), _validationAssemblies, _validationEnvironmentSettings);
+            _validationCollection = new ValidationCollection<TValidatedObject>(ValidatedObject, _validationTypes.ToArray(), _validationEnvironmentSettings, _validationAssemblies);
         }
+
+        /// <summary>
+        /// Instanziiere eine neue typisierte Validierungsbasis. Dabei können optional zusätzliche Inforamtionen angegeben werden.
+        /// </summary>
+        /// <param name="validatedObject">Das zu validierende Objekt (pflicht)</param>
+        /// <param name="assemblies">Ein Array von den Assemblies, in welchen nach Validierungsregeln gesucht wird. (default: "CallingAssembly")</param>
+        /// <param name="validationTypes">Ein Array von Typen, welche "Kind"-Klassen des ValidationClassAttribute sind und eine Menge von Validierungen attributiert. (default: "ValidationClassAttribute")</param>
+        /// <param name="validationEnvironmentSettings">Ein Dictionary mit Validierungsrelevanten Key/Value-Paaren, die so initialisiert übernommen wird. (default: Leeres Dictionary&lt;string,object&gt;>)</param>
+        protected ValidatorBase(TValidatedObject validatedObject, IEnumerable<Type> validationTypes, [Optional] Dictionary<string, object> validationEnvironmentSettings)
+        {
+            ValidatedObject = validatedObject;
+
+            _validationTypes = validationTypes != null && validationTypes.Any() ? validationTypes.ToList() : new List<Type>();
+
+            _validationEnvironmentSettings = validationEnvironmentSettings ?? new Dictionary<string, object>();
+
+            _validationCollection = new ValidationCollection<TValidatedObject>(ValidatedObject, _validationTypes.ToArray(), _validationEnvironmentSettings);
+        }
+
         #endregion
 
         #region members

@@ -15,6 +15,7 @@ namespace XPerimentsTest.BoundariesTests
         [Test]
         public void CallMethodThatCallsAMethodOfAnotherDLLThatThrowsAnInternalException()
         {
+
             BoundariesI.Class1.DoSomething1();
         }
     }
