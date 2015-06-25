@@ -1,9 +1,0 @@
-D:\GitHub\Experiments\BoundariesI\bin\Debug\BoundariesI.dll
-D:\GitHub\Experiments\BoundariesI\bin\Debug\BoundariesI.pdb
-D:\GitHub\Experiments\BoundariesI\obj\Debug\BoundariesI.csprojResolveAssemblyReference.cache
-D:\GitHub\Experiments\BoundariesI\obj\Debug\BoundariesI.dll
-D:\GitHub\Experiments\BoundariesI\obj\Debug\BoundariesI.pdb
-D:\Repositories\Experiments\BoundariesI\bin\Debug\BoundariesI.dll
-D:\Repositories\Experiments\BoundariesI\bin\Debug\BoundariesI.pdb
-D:\Repositories\Experiments\BoundariesI\obj\Debug\BoundariesI.dll
-D:\Repositories\Experiments\BoundariesI\obj\Debug\BoundariesI.pdb
