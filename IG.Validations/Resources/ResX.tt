@@ -62,9 +62,9 @@
         /// <summary>
         ///   Looks up the id for the resource '<#=data_name#>'.
         /// </summary>
-        public static int <#= data_name #>Id {
+        public static string <#= data_name #>Id {
             get {
-                return <#= data_id #>;
+                return "<#= data_id #>";
             }
         }
 
@@ -98,10 +98,6 @@
 <#+
 
         }
-
-        var yx = 1;
-
-
 
     }
 

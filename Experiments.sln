@@ -26,9 +26,19 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoundariesII", "BoundariesI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.Validations", "IG.Validations\IG.Validations.csproj", "{9734762D-E0BC-49FA-97BD-AC59ECBB463D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceAssistant", "ResourceAssistant\ResourceAssistant.csproj", "{D6A36CCF-680B-4510-BF36-EC56CA8F244C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.ResourceAssistant", "ResourceAssistant\IG.ResourceAssistant.csproj", "{D6A36CCF-680B-4510-BF36-EC56CA8F244C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionCollection", "ConversionExtensions\ExtensionCollection.csproj", "{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.XmlAssistant", "XmlTools\IG.XmlAssistant.csproj", "{42D3C8D0-56E9-418F-9274-689209B4F169}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.Repository", "IG.Repository\IG.Repository.csproj", "{0E44F27B-AE32-4B7F-A646-60802218F354}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Toolbox", "Toolbox", "{1EF7E9CE-FAF1-466C-99CF-C24585350579}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleToolbox", "CopyHelper_DirRemover\ConsoleToolbox.csproj", "{665F83EF-0F99-4FAF-9169-8CA1ABA5C451}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.Caching", "IG.Caching\IG.Caching.csproj", "{BD96BC5F-9F6F-4168-8D68-924ECDEACBAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,8 +82,31 @@ Global
 		{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42D3C8D0-56E9-418F-9274-689209B4F169}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42D3C8D0-56E9-418F-9274-689209B4F169}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42D3C8D0-56E9-418F-9274-689209B4F169}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42D3C8D0-56E9-418F-9274-689209B4F169}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E44F27B-AE32-4B7F-A646-60802218F354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E44F27B-AE32-4B7F-A646-60802218F354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E44F27B-AE32-4B7F-A646-60802218F354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E44F27B-AE32-4B7F-A646-60802218F354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665F83EF-0F99-4FAF-9169-8CA1ABA5C451}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665F83EF-0F99-4FAF-9169-8CA1ABA5C451}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665F83EF-0F99-4FAF-9169-8CA1ABA5C451}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665F83EF-0F99-4FAF-9169-8CA1ABA5C451}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD96BC5F-9F6F-4168-8D68-924ECDEACBAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD96BC5F-9F6F-4168-8D68-924ECDEACBAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD96BC5F-9F6F-4168-8D68-924ECDEACBAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD96BC5F-9F6F-4168-8D68-924ECDEACBAD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D6A36CCF-680B-4510-BF36-EC56CA8F244C} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
+		{42D3C8D0-56E9-418F-9274-689209B4F169} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
+		{0E44F27B-AE32-4B7F-A646-60802218F354} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
+		{665F83EF-0F99-4FAF-9169-8CA1ABA5C451} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
+		{BD96BC5F-9F6F-4168-8D68-924ECDEACBAD} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
 	EndGlobalSection
 EndGlobal

@@ -75,9 +75,9 @@ namespace IG.Validations.Resources {
         /// <summary>
         ///   Looks up the id for the resource 'InvalidValidationType'.
         /// </summary>
-        public static int InvalidValidationTypeId {
+        public static string InvalidValidationTypeId {
             get {
-                return 100;
+                return "100";
             }
         }
 
