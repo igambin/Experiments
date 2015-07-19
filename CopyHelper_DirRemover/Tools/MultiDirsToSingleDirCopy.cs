@@ -41,7 +41,7 @@ namespace CopyHelper_DirRemover
         {
             get
             {
-                return "Starting in the sourceDirectory the FileCollector will search for directories matching a ";
+                return "Starting in the sourceDirectory the FileCollector will search for directories matching an optional filter. Then it will search for files within matching directories again using an optional filter. All matching files will be copied to the destination directory.";
             }
         }
 
@@ -82,7 +82,6 @@ namespace CopyHelper_DirRemover
                                      var file = new FileInfo(z);
                                      var sFilename = Path.Combine(fpath, z);
                                      var dFilename = Path.Combine(destinationDirectory, file.Name);
-                                 
                                  
                                      File.Copy(sFilename, dFilename, overwrite);
                                  });

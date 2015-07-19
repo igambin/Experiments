@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDecoupled", "EFDecoupled\EFDecoupled.csproj", "{275D8DF0-1654-4453-91E9-5287288866ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{69CB70EC-1DF9-4D3D-A93B-2DE8022DD8B1}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{54644B79-0603-4298-8CF0-5FF030DBE5CE}"
 	ProjectSection(SolutionItems) = preProject

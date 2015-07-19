@@ -11,6 +11,52 @@ namespace CopyHelper_DirRemover
     public class ConsoleInput
     {
 
+        public static string GetString(string paramName, string paramHelp)
+        {
+            string input = null;
+            while (input == null)
+            {
+                Console.Write(paramName + ": ");
+                input = Console.ReadLine();
+
+                if (input == "?")
+                {
+                    Console.WriteLine(paramHelp);
+                    input = null;
+                }
+                
+            }
+            return input;
+        }
+
+        public static bool GetBool(string paramName, string paramHelp)
+        {
+            string input = null;
+            while (input == null)
+            {
+                Console.Write(paramName + ": ");
+                input = Console.ReadLine();
+
+                if (input == "?")
+                {
+                    Console.WriteLine(paramHelp);
+                }
+
+                if(input.ToUpper().StartsWith("N"))
+                {
+                    return false;
+                }
+
+                if (input.ToUpper().StartsWith("Y"))
+                {
+                    return true;
+                }
+
+                input = null;
+            }
+            return false;
+        }
+
         public static string GetDirectory(string paramName, string paramHelp)
         {
             string input = null;

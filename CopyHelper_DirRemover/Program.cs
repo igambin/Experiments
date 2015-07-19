@@ -12,6 +12,9 @@ namespace CopyHelper_DirRemover
     {
         static void Main(string[] args)
         {
+            var tool = new Mp3TagWriter();
+
+            tool.Run();
 
         }
     }

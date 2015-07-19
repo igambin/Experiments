@@ -10,5 +10,6 @@ namespace CopyHelper_DirRemover
     {
         FileTool,
         SavegameEditor,
+        Mp3Tool,
     }
 }
