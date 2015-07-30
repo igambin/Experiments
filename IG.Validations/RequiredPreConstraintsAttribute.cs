@@ -21,9 +21,6 @@ namespace IG.Validations
         /// <summary>
         /// Gibt die registrierten PreConstraint-Typen als IEnumerable&lt;Type&gt; zurück
         /// </summary>
-        public IEnumerable<Type> Preconstraints
-        {
-            get { return _preconstraints; }
-        }
+        public IEnumerable<Type> Preconstraints => _preconstraints;
     }
 }

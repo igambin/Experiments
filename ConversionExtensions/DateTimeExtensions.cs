@@ -21,13 +21,10 @@ namespace ConversionExtensions
             return gebDat.AddYears(alter) > dayX ? --alter : alter;
         }
 
-        public static int GetMonthsUntil(this DateTime erstZulassung, DateTime letzteZulassung)
-        {
-            return letzteZulassung.Year * 12
-                 + letzteZulassung.Month
-                 - erstZulassung.Year * 12
-                 - erstZulassung.Month;
-        }
+        public static int GetMonthsUntil(this DateTime erstZulassung, DateTime letzteZulassung) =>  letzteZulassung.Year * 12
+                                                                                                    + letzteZulassung.Month
+                                                                                                    - erstZulassung.Year * 12
+                                                                                                    - erstZulassung.Month;
 
     }
 }

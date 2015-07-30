@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Experiments", "Experiments\Experiments.csproj", "{8058577A-9EE0-4229-BE42-FC78E062C7C1}"
 EndProject
@@ -106,6 +106,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{9734762D-E0BC-49FA-97BD-AC59ECBB463D} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
 		{D6A36CCF-680B-4510-BF36-EC56CA8F244C} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
 		{42D3C8D0-56E9-418F-9274-689209B4F169} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}
 		{0E44F27B-AE32-4B7F-A646-60802218F354} = {1EF7E9CE-FAF1-466C-99CF-C24585350579}

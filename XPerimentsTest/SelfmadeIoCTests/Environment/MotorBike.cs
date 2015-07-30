@@ -14,11 +14,11 @@ namespace XPerimentsTest.SelfmadeIoCTests.Environment
             Motor = motor;
         }
 
-        public IMotor Motor { get; private set; }
+        public IMotor Motor { get; }
 
         public string Smells()
         {
-            var line = String.Format("This motorbike's exhaust {0}.", Motor.Smell());
+            var line = string.Format("This motorbike's exhaust {0}.", Motor.Smell());
             Console.WriteLine(line);
             return line;
         }

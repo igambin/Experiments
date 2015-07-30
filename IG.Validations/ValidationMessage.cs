@@ -9,7 +9,7 @@ namespace IG.Validations
 {
     public class ValidationMessage
     {
-        public Guid id { get; private set; }
+        public Guid id { get; }
         public string Message { get; set; }
 
         public int MessageId { get; set; }
@@ -33,10 +33,7 @@ namespace IG.Validations
         }
 
 
-        public static ValidationResult Create()
-        {
-            return new ValidationResult();
-        }
+        public static ValidationResult Create() => new ValidationResult();
 
 
     }

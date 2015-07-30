@@ -56,10 +56,7 @@ namespace SelfmadeIoC
 
         #endregion
 
-        public T Resolve<T>(string name = null)
-        {
-            return (T)ResolveType(typeof(T), name);
-        }
+        public T Resolve<T>(string name = null) => (T)ResolveType(typeof(T), name);
 
         private object ResolveType(Type t, string name = null)
         {

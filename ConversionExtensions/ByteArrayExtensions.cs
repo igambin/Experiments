@@ -8,10 +8,7 @@ namespace ConversionExtensions
 {
     public static class ByteArrayExtensions
     {
-        public static string AsString(this byte[] arr)
-        {
-            var enc = new UTF8Encoding();
-            return enc.GetString(arr);
-        }
+        public static string AsString(this byte[] arr) => new UTF8Encoding().GetString(arr);
+
     }
 }

@@ -57,7 +57,7 @@ namespace XPerimentsTest.SelfmadeIoCTests
 
             container.Register<String>("String always defaults to this string.");
 
-            var str = container.Resolve<String>();
+            var str = container.Resolve<string>();
 
             Assert.AreEqual("String always defaults to this string.", str);
         }

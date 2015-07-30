@@ -66,54 +66,32 @@ namespace IG.Validations.Resources {
         /// <summary>
         ///   Looks up a localized string for the resource 'InvalidValidationType'.
         /// </summary>
-        public static string InvalidValidationType {
-            get {
-                return ResourceManager.GetString("InvalidValidationType", resourceCulture);
-            }
-        }
+        public static string InvalidValidationType => ResourceManager.GetString("InvalidValidationType", resourceCulture);
 
         /// <summary>
         ///   Looks up the id for the resource 'InvalidValidationType'.
         /// </summary>
-        public static string InvalidValidationTypeId {
-            get {
-                return "101";
-            }
-        }
+        public static string InvalidValidationTypeId => "101";
 
         /// <summary>
         ///   Looks up the formatable string for the resource 'InvalidValidationType' inserts passed arguments
         /// </summary>
-        public static string InvalidValidationTypeFormat(string arg0) {
-            var fString = ResourceManager.GetString("InvalidValidationType", resourceCulture);
-            return String.Format(fString, arg0);
-        }
+        public static string InvalidValidationTypeFormat(string arg0) => string.Format(InvalidValidationType, arg0);
 
         /// <summary>
         ///   Looks up a localized string for the resource 'MissingValidConstructorInValidation'.
         /// </summary>
-        public static string MissingValidConstructorInValidation {
-            get {
-                return ResourceManager.GetString("MissingValidConstructorInValidation", resourceCulture);
-            }
-        }
+        public static string MissingValidConstructorInValidation => ResourceManager.GetString("MissingValidConstructorInValidation", resourceCulture);
 
         /// <summary>
         ///   Looks up the id for the resource 'MissingValidConstructorInValidation'.
         /// </summary>
-        public static string MissingValidConstructorInValidationId {
-            get {
-                return "100";
-            }
-        }
+        public static string MissingValidConstructorInValidationId => "100";
 
         /// <summary>
         ///   Looks up the formatable string for the resource 'MissingValidConstructorInValidation' inserts passed arguments
         /// </summary>
-        public static string MissingValidConstructorInValidationFormat(string arg0) {
-            var fString = ResourceManager.GetString("MissingValidConstructorInValidation", resourceCulture);
-            return String.Format(fString, arg0);
-        }
+        public static string MissingValidConstructorInValidationFormat(string arg0) => string.Format(MissingValidConstructorInValidation, arg0);
 
 
     }

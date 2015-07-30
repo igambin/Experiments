@@ -24,9 +24,6 @@ namespace XPerimentsTest.SelfmadeIoCTests.Environment
         }
 
 
-        internal object CheckExhaust()
-        {
-            return Vehicle.Smells();
-        }
+        internal object CheckExhaust() => Vehicle.Smells();
     }
 }

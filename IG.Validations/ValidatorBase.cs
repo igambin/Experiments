@@ -139,8 +139,8 @@ namespace IG.Validations
                     {
                         var quelle = new List<string>
                         {
-                            String.Format("ValidationId {0}", validationInstance.ErrorId.ToString(CultureInfo.CurrentCulture)),
-                            String.Format("{0}", GetType().FullName)
+                            string.Format("ValidationId {0}", validationInstance.ErrorId.ToString(CultureInfo.CurrentCulture)),
+                            string.Format("{0}", GetType().FullName)
                         };
                         quelle.AddRange(validationInstance.Quelle);
                         result.AddMessages(validationInstance.ErrorResource, MessageType.Exception, validationInstance.Quelle);

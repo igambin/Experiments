@@ -47,11 +47,7 @@
         /// <summary>
         ///   Looks up a localized string for the resource '<#=data_name#>'.
         /// </summary>
-        public static string <#= data_name #> {
-            get {
-                return ResourceManager.GetString("<#= data_name #>", resourceCulture);
-            }
-        }
+        public static string <#= data_name #> => ResourceManager.GetString("<#= data_name #>", resourceCulture);
 
 <#+
         var data_id= "";    
@@ -62,11 +58,7 @@
         /// <summary>
         ///   Looks up the id for the resource '<#=data_name#>'.
         /// </summary>
-        public static string <#= data_name #>Id {
-            get {
-                return "<#= data_id #>";
-            }
-        }
+        public static string <#= data_name #>Id => "<#= data_id #>";
 
 <#+
         }
@@ -90,10 +82,7 @@
         /// <summary>
         ///   Looks up the formatable string for the resource '<#=data_name#>' inserts passed arguments
         /// </summary>
-        public static string <#= data_name #>Format(<#= String.Join(", ", arguments) #>) {
-            var fString = ResourceManager.GetString("<#= data_name #>", resourceCulture);
-            return String.Format(fString, <#= String.Join(", ", variables) #>);
-        }
+        public static string <#= data_name #>Format(<#= String.Join(", ", arguments) #>) => string.Format(<#= data_name #>, <#= String.Join(", ", variables) #>);
 
 <#+
 

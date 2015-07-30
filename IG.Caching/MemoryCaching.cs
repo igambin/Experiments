@@ -47,9 +47,6 @@ namespace IG.Caching
             return data;
         }
 
-        public T GetOrSet<T>(string key, Func<T> dataGetter) where T : class
-        {
-            return GetOrSet<T>(key, dataGetter, TimeSpan.FromMinutes(30d));
-        }
+        public T GetOrSet<T>(string key, Func<T> dataGetter) where T : class => GetOrSet<T>(key, dataGetter, TimeSpan.FromMinutes(30d));
     }
 }

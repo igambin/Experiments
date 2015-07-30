@@ -21,29 +21,11 @@ namespace CopyHelper_DirRemover
 
         }
 
-        public Categories Category
-        {
-            get
-            {
-                return Categories.Mp3Tool;
-            }
-        }
+        public Categories Category => Categories.Mp3Tool;
 
-        public string Name
-        {
-            get
-            {
-                return "Mp3TagWriter";
-            }
-        }
+        public string Name => "Mp3TagWriter";
 
-        public string Description
-        {
-            get
-            {
-                return "Schreibt Mp3 ID3-Informationen. Verzeichnisname als Album, führende Nummer einer Datei als Track-Nr, Rest des Dateinamens als Title";
-            }
-        }
+        public string Description => "Schreibt Mp3 ID3-Informationen. Verzeichnisname als Album, führende Nummer einer Datei als Track-Nr, Rest des Dateinamens als Title";
 
         public void Run()
         {
@@ -54,12 +36,12 @@ namespace CopyHelper_DirRemover
             bool replaceTrackArtists = ConsoleInput.GetBool("Replace Track-Artists by Album-Artists (y/n)  ", "(y)es or (n)o");
             bool recountTrackIds     = ConsoleInput.GetBool("Reset Track-Numbers of Filelist sorted by name", "Set a new Track-Id based on a files position after ordering the whole list of files by name");
 
-            if(String.IsNullOrEmpty(albumName))
+            if(string.IsNullOrEmpty(albumName))
             {
                 albumName = "none";
             }
 
-            if (String.IsNullOrEmpty(artistName))
+            if (string.IsNullOrEmpty(artistName))
             {
                 artistName = "none";
             }

@@ -9,10 +9,7 @@ namespace ConversionExtensions
     public static class StringExtensions
     {
 
-        public static byte[] ToByteArray(this string str)
-        {
-            var enc = new UTF8Encoding();
-            return enc.GetBytes(str);
-        }
+        public static byte[] ToByteArray(this string str) => new UTF8Encoding().GetBytes(str);
+
     }
 }

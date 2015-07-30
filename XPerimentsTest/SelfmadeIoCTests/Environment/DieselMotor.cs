@@ -8,9 +8,6 @@ namespace XPerimentsTest.SelfmadeIoCTests.Environment
 {
     public class DieselMotor : IMotor
     {
-        public string Smell()
-        {
-            return "stinks";
-        }
+        public string Smell() => "stinks";
     }
 }

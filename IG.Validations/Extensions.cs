@@ -10,20 +10,11 @@ namespace IG.Validations
 {
     public static class Extensions
     {
-        public static IEnumerable<ValidationMessage> CreateMessages(this Exception e)
-        {
-            return e.CreateMessages(null, null);
-        }
+        public static IEnumerable<ValidationMessage> CreateMessages(this Exception e) => e.CreateMessages(null, null);
 
-        public static IEnumerable<ValidationMessage> CreateMessages(this Exception e, IEnumerable<string> sources)
-        {
-            return e.CreateMessages(null, sources);
-        }
+        public static IEnumerable<ValidationMessage> CreateMessages(this Exception e, IEnumerable<string> sources) => e.CreateMessages(null, sources);
 
-        public static IEnumerable<ValidationMessage> CreateMessages(this Exception e, int? messageId)
-        {
-            return e.CreateMessages(messageId, null);
-        }
+        public static IEnumerable<ValidationMessage> CreateMessages(this Exception e, int? messageId) => e.CreateMessages(messageId, null);
 
         public static IEnumerable<ValidationMessage> CreateMessages(this Exception e, int? messageId, IEnumerable<string> sources)
         {
@@ -42,16 +33,13 @@ namespace IG.Validations
         }
 
         private static ValidationMessage CreateMessage(string message, int messageId, IEnumerable<string> sources,
-            MessageType messageType)
-        {
-            return new ValidationMessage
+            MessageType messageType) => new ValidationMessage
             {
                 Message = message,
                 MessageId = messageId,
                 MessageType = messageType,
                 Source = string.Join(", ", sources)
             };
-        }
 
         private static IEnumerable<string> CreateSources(KeyValuePair<string, Tuple<string, string, string>> item, IEnumerable<string> sources)
         {

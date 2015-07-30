@@ -11,24 +11,18 @@ namespace IG.Validations
 {
     public class ValidationResult
     {
-        public ValidationStatus Status
-        {
-            get { return Messages.Any(x => x.MessageType > MessageType.Warning) ? ValidationStatus.NotOk : ValidationStatus.Ok; }
-        }
+        public ValidationStatus Status => Messages.Any(x => x.MessageType > MessageType.Warning) ? ValidationStatus.NotOk : ValidationStatus.Ok;
 
         private readonly List<ValidationMessage> _messages;
 
-        public List<ValidationMessage> Messages { get { return _messages;  }  }
+        public List<ValidationMessage> Messages => _messages;
 
         public ValidationResult()
         {
             _messages = new List<ValidationMessage>();
         }
 
-        public static ValidationResult Create()
-        {
-            return new ValidationResult();
-        }
+        public static ValidationResult Create() => new ValidationResult();
 
 
         public void AddMessages(Expression<Func<string>> errorResource, MessageType messageType, string[] sources, params object[] formatArgs)

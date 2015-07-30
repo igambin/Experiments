@@ -23,12 +23,12 @@ namespace IG.Validations
         /// <summary>
         /// Eine Liste von Validierungsklassentypen, die als PreConstraints zur Ausführung dieser Validierungsklasse "valide" sein müssen
         /// </summary>
-        public List<Type> PreConstraints { get; private set; }
+        public List<Type> PreConstraints { get; }
 
         /// <summary>
         /// Eine Liste zur Sammlung von Quellen-Informationen, die dann im Result-Objekt aufgelistet werden
         /// </summary>
-        public List<string> FehlerQuellen { get; private set; }
+        public List<string> FehlerQuellen { get; }
 
         /// <summary>
         /// Das zu validierende Objekt
@@ -69,10 +69,7 @@ namespace IG.Validations
         /// ein Accessor, der alle Fehlerquellen als string[] zurückgibt
         /// (kann in der jeweiligen Validierungsklasse überschrieben werden)
         /// </summary>
-        public virtual string[] Quelle
-        {
-            get { return FehlerQuellen.ToArray(); }
-        }
+        public virtual string[] Quelle => FehlerQuellen.ToArray();
 
         #endregion
 
@@ -100,10 +97,7 @@ namespace IG.Validations
         /// <summary>
         /// gibt ein String[] zurück, welches alle Setting-Keys enthält
         /// </summary>
-        protected string[] SettingKeys
-        {
-            get { return _validationEnvironmentSettings.Keys.ToArray(); }
-        }
+        protected string[] SettingKeys => _validationEnvironmentSettings.Keys.ToArray();
 
         /// <summary>
         /// Auslesen eines Setting-Wertes aus den validierungsrelevanten Umgebungsdaten und Rückgabe als 'object'

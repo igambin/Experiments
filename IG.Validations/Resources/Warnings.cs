@@ -66,28 +66,17 @@ namespace IG.Validations.Resources {
         /// <summary>
         ///   Looks up a localized string for the resource 'InvalidValidationType'.
         /// </summary>
-        public static string InvalidValidationType {
-            get {
-                return ResourceManager.GetString("InvalidValidationType", resourceCulture);
-            }
-        }
+        public static string InvalidValidationType => ResourceManager.GetString("InvalidValidationType", resourceCulture);
 
         /// <summary>
         ///   Looks up the id for the resource 'InvalidValidationType'.
         /// </summary>
-        public static string InvalidValidationTypeId {
-            get {
-                return "100";
-            }
-        }
+        public static string InvalidValidationTypeId => "100";
 
         /// <summary>
         ///   Looks up the formatable string for the resource 'InvalidValidationType' inserts passed arguments
         /// </summary>
-        public static string InvalidValidationTypeFormat(object arg0) {
-            var fString = ResourceManager.GetString("InvalidValidationType", resourceCulture);
-            return String.Format(fString, arg0);
-        }
+        public static string InvalidValidationTypeFormat(object arg0) => string.Format(InvalidValidationType, arg0);
 
 
     }

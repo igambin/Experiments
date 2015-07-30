@@ -29,7 +29,7 @@ namespace XmlTools
 
             if (value == null)
             {
-                throw new ArgumentNullException("value");
+                throw new ArgumentNullException(nameof(value));
             }
 
             if (!value.IsSerializable())
@@ -72,6 +72,7 @@ namespace XmlTools
             }
 
             string _byteOrderMarkUtf8 = Encoding.UTF8.GetString(Encoding.UTF8.GetPreamble());
+
             if (xml.StartsWith(_byteOrderMarkUtf8))
             {
                 xml = xml.Remove(0, _byteOrderMarkUtf8.Length);
@@ -106,7 +107,7 @@ namespace XmlTools
 
         private sealed class Utf8StringWriter : StringWriter
         {
-            public override Encoding Encoding { get { return Encoding.UTF8; } }
+            public override Encoding Encoding => Encoding.UTF8;
         }
     }
  }

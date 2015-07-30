@@ -28,7 +28,7 @@ namespace ResourceAssistant
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, bool cache = true)
+        public static byte[] ExtractResource(string filename, bool cache = true)
         {
             var assembly = Assembly.GetCallingAssembly();
             return ExtractResource(filename, assembly, null, cache);
@@ -40,7 +40,7 @@ namespace ResourceAssistant
         /// <param name="filename"></param>
         /// <param name="resourceDirectory"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, string resourceDirectory, bool cache = true)
+        public static byte[] ExtractResource(string filename, string resourceDirectory, bool cache = true)
         {
             var assembly = Assembly.GetCallingAssembly();
             return ExtractResource(filename, assembly, resourceDirectory, cache);
@@ -53,10 +53,7 @@ namespace ResourceAssistant
         /// <param name="filename"></param>
         /// <param name="assembly"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, Assembly assembly, bool cache = true)
-        {
-            return ExtractResource(filename, assembly, null, cache);
-        }
+        public static byte[] ExtractResource(string filename, Assembly assembly, bool cache = true) => ExtractResource(filename, assembly, null, cache);
 
         /// <summary>
         /// Will read files marked as "EmbeddedResource" from the determined ResourceDirectory of the Assembly passed as argument
@@ -65,11 +62,11 @@ namespace ResourceAssistant
         /// <param name="assembly"></param>
         /// <param name="resourceDirectory"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(String filename, Assembly assembly, string resourceDirectory, bool cache)
+        public static byte[] ExtractResource(string filename, Assembly assembly, string resourceDirectory, bool cache)
         {
             resourceDirectory = resourceDirectory ?? "Resources";
 
-            var resourceKey = String.Format("{0}.{1}.{2}", assembly.GetName().Name, resourceDirectory, filename);
+            var resourceKey = string.Format("{0}.{1}.{2}", assembly.GetName().Name, resourceDirectory, filename);
 
             var ba = new byte[] { };
 

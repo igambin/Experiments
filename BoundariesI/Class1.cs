@@ -20,7 +20,7 @@ namespace BoundariesI
 
     internal class MyException : Exception
     {
-        public string MyProperty { get; private set; }
+        public string MyProperty { get; }
 
         public MyException(string w)
         {

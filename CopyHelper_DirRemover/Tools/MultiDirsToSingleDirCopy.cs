@@ -21,29 +21,11 @@ namespace CopyHelper_DirRemover
 
         }
 
-        public Categories Category
-        {
-            get
-            {
-                return Categories.FileTool;
-            }
-        }
+        public Categories Category => Categories.FileTool;
 
-        public string Name
-        {
-            get
-            {
-                return "FileCollector";
-            }
-        }
+        public string Name => "FileCollector";
 
-        public string Description
-        {
-            get
-            {
-                return "Starting in the sourceDirectory the FileCollector will search for directories matching an optional filter. Then it will search for files within matching directories again using an optional filter. All matching files will be copied to the destination directory.";
-            }
-        }
+        public string Description => "Starting in the sourceDirectory the FileCollector will search for directories matching an optional filter. Then it will search for files within matching directories again using an optional filter. All matching files will be copied to the destination directory.";
 
         public void Run()
         {

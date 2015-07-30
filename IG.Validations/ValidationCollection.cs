@@ -87,20 +87,14 @@ namespace IG.Validations
         /// in welchem alle Typ-zu-TypInstanz Mappings enthalten sind
         /// </summary>
         /// <returns></returns>
-        public Dictionary<Type, ValidationBase<TValidatedObject>> GetAll()
-        {
-            return _validations;
-        }
+        public Dictionary<Type, ValidationBase<TValidatedObject>> GetAll() => _validations;
 
         /// <summary>
         /// Gibt das instanziierte Objekt einer Validierung aus der ValidationCollection zurück
         /// </summary>
         /// <typeparam name="TValidationType">der Typ der Validierung für welche das instanziierte Objekt erwartet wird</typeparam>
         /// <returns>das instanziierte Objekt vom Typ '<typeparamref name="TValidatedObject">type</typeparamref>'</returns>
-        public ValidationBase<TValidatedObject> GetValidationByType<TValidationType>()
-        {
-            return GetValidationByType(typeof(TValidationType));
-        }
+        public ValidationBase<TValidatedObject> GetValidationByType<TValidationType>() => GetValidationByType(typeof(TValidationType));
 
         /// <summary>
         /// Gibt das instanziierte Objekt einer Validierung aus der ValidationCollection zurück
@@ -122,10 +116,7 @@ namespace IG.Validations
         /// </summary>
         /// <param name="types">1 - n Validierungs-Typen, deren instanziierte Objekte erwarted werden</param>
         /// <returns></returns>
-        public IEnumerable<ValidationBase<TValidatedObject>> GetValidationsByTypes(params Type[] types)
-        {
-            return from item in _validations where types.Contains(item.Key) select item.Value;
-        }
+        public IEnumerable<ValidationBase<TValidatedObject>> GetValidationsByTypes(params Type[] types) => from item in _validations where types.Contains(item.Key) select item.Value;
 
         /// <summary>
         ///     <para>

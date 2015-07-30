@@ -92,7 +92,7 @@ namespace CopyHelper_DirRemover
                     Console.WriteLine(paramHelp);
                     input = null;
                 }
-                else if (String.IsNullOrEmpty(input))
+                else if (string.IsNullOrEmpty(input))
                 {
                     if (nullable)
                     {

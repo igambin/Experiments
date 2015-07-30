@@ -8,9 +8,9 @@ namespace SelfmadeIoC
 {
     public sealed class ResolvableConstructorAttribute : Attribute
     {
-        public String Name { get; set; }
+        public string Name { get; set; }
 
-        public ResolvableConstructorAttribute(String name)
+        public ResolvableConstructorAttribute(string name)
         {
             Name = name;
         }
