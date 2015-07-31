@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Toolbox.Core;
+using static System.Console;
 
-namespace CopyHelper_DirRemover
+namespace Toolbox.Console
 {
     public class MultiDirsToSingleDirCopy : IConsoleTool
     {
@@ -73,14 +72,14 @@ namespace CopyHelper_DirRemover
                 }
                 else
                 {
-                    Console.WriteLine("Destination Directory not found.");
+                    WriteLine("Destination Directory not found.");
                 }
             }
             else
             {
-                Console.WriteLine("SourceDirectory not found.");
+                WriteLine("SourceDirectory not found.");
             }
-            Console.ReadLine();
+            ReadLine();
 
         }
 

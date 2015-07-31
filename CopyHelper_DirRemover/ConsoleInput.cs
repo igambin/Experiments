@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.RegularExpressions;
-
-namespace CopyHelper_DirRemover
+using static System.Console;
+namespace Toolbox.Console
 {
     public class ConsoleInput
     {
@@ -16,12 +12,12 @@ namespace CopyHelper_DirRemover
             string input = null;
             while (input == null)
             {
-                Console.Write(paramName + ": ");
-                input = Console.ReadLine();
+                Write(paramName + ": ");
+                input = ReadLine();
 
                 if (input == "?")
                 {
-                    Console.WriteLine(paramHelp);
+                    WriteLine(paramHelp);
                     input = null;
                 }
                 
@@ -34,12 +30,12 @@ namespace CopyHelper_DirRemover
             string input = null;
             while (input == null)
             {
-                Console.Write(paramName + ": ");
-                input = Console.ReadLine();
+                Write(paramName + ": ");
+                input = ReadLine();
 
                 if (input == "?")
                 {
-                    Console.WriteLine(paramHelp);
+                    WriteLine(paramHelp);
                 }
 
                 if(input.ToUpper().StartsWith("N"))
@@ -62,16 +58,16 @@ namespace CopyHelper_DirRemover
             string input = null;
             while (input == null)
             {
-                Console.Write(paramName+": ");
-                input = Console.ReadLine();
+                Write(paramName+": ");
+                input = ReadLine();
 
                 if(input == "?") {
-                    Console.WriteLine(paramHelp);
+                    WriteLine(paramHelp);
                     input = null;
                 }
                 else if (!Directory.Exists(input))
                 {
-                    Console.WriteLine("Directory does not exist, or you are not allowed to access it.");
+                    WriteLine("Directory does not exist, or you are not allowed to access it.");
                     input = null;
                 }
             }
@@ -84,12 +80,12 @@ namespace CopyHelper_DirRemover
             string input = null;
             while (input == null)
             {
-                Console.Write(paramName + ": ");
-                input = Console.ReadLine();
+                Write(paramName + ": ");
+                input = ReadLine();
 
                 if (input == "?")
                 {
-                    Console.WriteLine(paramHelp);
+                    WriteLine(paramHelp);
                     input = null;
                 }
                 else if (string.IsNullOrEmpty(input))
@@ -108,7 +104,7 @@ namespace CopyHelper_DirRemover
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e.Message);
+                    WriteLine(e.Message);
                     input = null;
                 }
 

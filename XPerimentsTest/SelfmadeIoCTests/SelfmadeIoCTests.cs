@@ -1,7 +1,6 @@
 ﻿using System;
 using XPerimentsTest.SelfmadeIoCTests.Environment;
 using SelfmadeIoC;
-using NUnit;
 using NUnit.Framework;
 using System.IO;
 

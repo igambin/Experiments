@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using Toolbox.Core;
+using static System.Console;
 
-namespace CopyHelper_DirRemover
+namespace Toolbox.Console
 {
     public class Mp3TagWriter : IConsoleTool
     {
         string sourceDirectory;
         string albumName;
         string artistName;
-        Regex fileFilter = null;
-        bool overwrite = false;
 
         public Mp3TagWriter()
         {
@@ -95,7 +92,7 @@ namespace CopyHelper_DirRemover
             }
             else
             {
-                Console.WriteLine("SourceDirectory not found.");
+                WriteLine("SourceDirectory not found.");
             }
 
         }

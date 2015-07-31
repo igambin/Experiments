@@ -8,11 +8,9 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-using System;
-using System.Linq;
-using System.Collections.Generic;
 
-namespace IG.Validations.Resources {
+namespace IG.Validations.Resources
+{
 
 
     /// <summary>

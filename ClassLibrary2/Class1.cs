@@ -4,12 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CopyHelper_DirRemover
+namespace ClassLibrary2
 {
-    public enum Categories
+    public class Class1
     {
-        FileTool,
-        SavegameEditor,
-        Mp3Tool,
     }
 }

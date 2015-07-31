@@ -2,10 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Remoting.Messaging;
 using IG.Validations.Exceptions;
 using System.Runtime.InteropServices;
-using IG.Validations.Resources;
 
 namespace IG.Validations
 {
