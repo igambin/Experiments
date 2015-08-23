@@ -30,7 +30,9 @@ namespace WinFormsToolbox
         }
 
         [ImportMany]
+#pragma warning disable 649
         private IEnumerable<Lazy<IWinFormsTool, IWinFormsToolData>> _tools;
+#pragma warning restore 649
 
         private class ToolChooserEntry
         {
@@ -45,7 +47,6 @@ namespace WinFormsToolbox
         }
 
         private IList<ToolChooserEntry> _filteredTools;
-        private BindingList<ToolChooserEntry> _bindinglist;
 
         private void LoadTools()
         {
@@ -93,6 +94,34 @@ namespace WinFormsToolbox
         private void CategoryChooser_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateToolChooser();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(ToolChooser.SelectedIndex >= 0)
+            {
+                var selectedEntry = ToolChooser.SelectedItem as ToolChooserEntry;
+
+                var tool = selectedEntry.Tool.Value;
+
+                var form = tool.GetModuleForm();
+                form.Show(this);
+            }
+        }
+
+        private void ToolTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolChooser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
