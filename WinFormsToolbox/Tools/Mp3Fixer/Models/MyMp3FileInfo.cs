@@ -42,7 +42,7 @@ namespace WinFormsToolbox.Mp3Fixer.Models
                 _genres = value.Split(',').Select(x => x.Trim()).ToList();
             }
         }
-        public string AlbumArtists
+        public string AlbumPerformers
         {
             get
             {
@@ -53,7 +53,7 @@ namespace WinFormsToolbox.Mp3Fixer.Models
                 _albumPerformers = value.Split(',').Select(x => x.Trim()).ToList();
             }
         }
-        public string TrackArtists
+        public string TrackPerformers
         {
             get
             {

@@ -32,7 +32,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
@@ -46,47 +45,60 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tcDataInput = new System.Windows.Forms.TabControl();
             this.tpAlbum = new System.Windows.Forms.TabPage();
+            this.bResetYear = new System.Windows.Forms.Button();
+            this.bSetYear = new System.Windows.Forms.Button();
+            this.bResetConductor = new System.Windows.Forms.Button();
             this.bSetConductor = new System.Windows.Forms.Button();
+            this.bResetDiscCount = new System.Windows.Forms.Button();
+            this.bSetDiscCount = new System.Windows.Forms.Button();
+            this.bResetAlbumPerformers = new System.Windows.Forms.Button();
+            this.bSetAlbumPerformers = new System.Windows.Forms.Button();
+            this.bResetAlbumName = new System.Windows.Forms.Button();
+            this.bSetAlbumName = new System.Windows.Forms.Button();
+            this.bResetDiscNo = new System.Windows.Forms.Button();
             this.cbConductor = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.cbDiscCount = new System.Windows.Forms.ComboBox();
-            this.bSetDiscCount = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cbDiscNo = new System.Windows.Forms.ComboBox();
             this.bSetDiscNo = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.bSetYear = new System.Windows.Forms.Button();
-            this.bSetAlbumArtists = new System.Windows.Forms.Button();
             this.cbYear = new System.Windows.Forms.ComboBox();
-            this.cbAlbumArtists = new System.Windows.Forms.ComboBox();
+            this.cbAlbumPerformers = new System.Windows.Forms.ComboBox();
             this.cbAlbumName = new System.Windows.Forms.ComboBox();
-            this.bSetAlbumName = new System.Windows.Forms.Button();
             this.tpTrack = new System.Windows.Forms.TabPage();
+            this.bResetGenres = new System.Windows.Forms.Button();
+            this.bSetGenres = new System.Windows.Forms.Button();
+            this.bResetTrackCount = new System.Windows.Forms.Button();
+            this.bSetTrackCount = new System.Windows.Forms.Button();
+            this.bResetTrackNo = new System.Windows.Forms.Button();
+            this.bSetTrackNo = new System.Windows.Forms.Button();
+            this.bResetComposers = new System.Windows.Forms.Button();
             this.bSetComposers = new System.Windows.Forms.Button();
+            this.bResetTrackPerformers = new System.Windows.Forms.Button();
+            this.bSetTrackPerformers = new System.Windows.Forms.Button();
+            this.bResetTrackTitle = new System.Windows.Forms.Button();
+            this.bSetTrackName = new System.Windows.Forms.Button();
             this.cbComposers = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.bSetGenres = new System.Windows.Forms.Button();
             this.cbGenres = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.cbTrackArtists = new System.Windows.Forms.ComboBox();
+            this.cbTrackPerformers = new System.Windows.Forms.ComboBox();
             this.cbTrackName = new System.Windows.Forms.ComboBox();
-            this.bSetTrackArtists = new System.Windows.Forms.Button();
-            this.bSetTrackName = new System.Windows.Forms.Button();
             this.cbTrackCount = new System.Windows.Forms.ComboBox();
-            this.bSetTrackCount = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.cbTrackNo = new System.Windows.Forms.ComboBox();
-            this.bSetTrackNo = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.bReplaceTrackArtists = new System.Windows.Forms.Button();
-            this.bResetTrackCount = new System.Windows.Forms.Button();
-            this.bResetTrackNo = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.cbInputColumnChooser = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.tcDataInput.SuspendLayout();
@@ -113,17 +125,6 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(532, 20);
             this.textBox1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Image = global::WinFormsToolbox.WinFormsResources.folder1;
-            this.button1.Location = new System.Drawing.Point(641, 8);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(31, 23);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.ChooseFolderClick);
             // 
             // label2
             // 
@@ -154,9 +155,9 @@
             this.button3.BackColor = System.Drawing.SystemColors.Control;
             this.button3.Font = new System.Drawing.Font("Meiryo", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.DarkRed;
-            this.button3.Location = new System.Drawing.Point(544, 426);
+            this.button3.Location = new System.Drawing.Point(514, 426);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(128, 23);
+            this.button3.Size = new System.Drawing.Size(158, 23);
             this.button3.TabIndex = 6;
             this.button3.Text = "Update Mp3-Tags";
             this.button3.UseVisualStyleBackColor = false;
@@ -188,7 +189,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(99, 225);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(517, 21);
+            this.comboBox1.Size = new System.Drawing.Size(573, 21);
             this.comboBox1.TabIndex = 8;
             // 
             // contextMenuStrip1
@@ -263,21 +264,27 @@
             // 
             // tpAlbum
             // 
+            this.tpAlbum.Controls.Add(this.bResetYear);
+            this.tpAlbum.Controls.Add(this.bSetYear);
+            this.tpAlbum.Controls.Add(this.bResetConductor);
             this.tpAlbum.Controls.Add(this.bSetConductor);
+            this.tpAlbum.Controls.Add(this.bResetDiscCount);
+            this.tpAlbum.Controls.Add(this.bSetDiscCount);
+            this.tpAlbum.Controls.Add(this.bResetAlbumPerformers);
+            this.tpAlbum.Controls.Add(this.bSetAlbumPerformers);
+            this.tpAlbum.Controls.Add(this.bResetAlbumName);
+            this.tpAlbum.Controls.Add(this.bSetAlbumName);
+            this.tpAlbum.Controls.Add(this.bResetDiscNo);
             this.tpAlbum.Controls.Add(this.cbConductor);
             this.tpAlbum.Controls.Add(this.label9);
             this.tpAlbum.Controls.Add(this.cbDiscCount);
-            this.tpAlbum.Controls.Add(this.bSetDiscCount);
             this.tpAlbum.Controls.Add(this.label5);
             this.tpAlbum.Controls.Add(this.cbDiscNo);
             this.tpAlbum.Controls.Add(this.bSetDiscNo);
             this.tpAlbum.Controls.Add(this.label7);
-            this.tpAlbum.Controls.Add(this.bSetYear);
-            this.tpAlbum.Controls.Add(this.bSetAlbumArtists);
             this.tpAlbum.Controls.Add(this.cbYear);
-            this.tpAlbum.Controls.Add(this.cbAlbumArtists);
+            this.tpAlbum.Controls.Add(this.cbAlbumPerformers);
             this.tpAlbum.Controls.Add(this.cbAlbumName);
-            this.tpAlbum.Controls.Add(this.bSetAlbumName);
             this.tpAlbum.Controls.Add(this.label3);
             this.tpAlbum.Controls.Add(this.label4);
             this.tpAlbum.Controls.Add(this.label6);
@@ -289,16 +296,194 @@
             this.tpAlbum.Text = "Album/Disc Information";
             this.tpAlbum.UseVisualStyleBackColor = true;
             // 
+            // bResetYear
+            // 
+            this.bResetYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetYear.AutoSize = true;
+            this.bResetYear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetYear.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetYear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetYear.Location = new System.Drawing.Point(622, 111);
+            this.bResetYear.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetYear.Name = "bResetYear";
+            this.bResetYear.Size = new System.Drawing.Size(24, 24);
+            this.bResetYear.TabIndex = 70;
+            this.bResetYear.UseVisualStyleBackColor = true;
+            this.bResetYear.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetYear
+            // 
+            this.bSetYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSetYear.AutoSize = true;
+            this.bSetYear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetYear.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetYear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetYear.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetYear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetYear.Location = new System.Drawing.Point(602, 111);
+            this.bSetYear.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetYear.Name = "bSetYear";
+            this.bSetYear.Size = new System.Drawing.Size(24, 24);
+            this.bSetYear.TabIndex = 69;
+            this.bSetYear.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetYear.UseVisualStyleBackColor = true;
+            this.bSetYear.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetConductor
+            // 
+            this.bResetConductor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetConductor.AutoSize = true;
+            this.bResetConductor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetConductor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetConductor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetConductor.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetConductor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetConductor.Location = new System.Drawing.Point(622, 57);
+            this.bResetConductor.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetConductor.Name = "bResetConductor";
+            this.bResetConductor.Size = new System.Drawing.Size(24, 24);
+            this.bResetConductor.TabIndex = 68;
+            this.bResetConductor.UseVisualStyleBackColor = true;
+            this.bResetConductor.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
             // bSetConductor
             // 
             this.bSetConductor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetConductor.Location = new System.Drawing.Point(606, 60);
+            this.bSetConductor.AutoSize = true;
+            this.bSetConductor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetConductor.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetConductor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetConductor.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetConductor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetConductor.Location = new System.Drawing.Point(602, 57);
+            this.bSetConductor.Margin = new System.Windows.Forms.Padding(0);
             this.bSetConductor.Name = "bSetConductor";
-            this.bSetConductor.Size = new System.Drawing.Size(40, 21);
-            this.bSetConductor.TabIndex = 59;
-            this.bSetConductor.Text = "set";
+            this.bSetConductor.Size = new System.Drawing.Size(24, 24);
+            this.bSetConductor.TabIndex = 67;
+            this.bSetConductor.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bSetConductor.UseVisualStyleBackColor = true;
             this.bSetConductor.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetDiscCount
+            // 
+            this.bResetDiscCount.AutoSize = true;
+            this.bResetDiscCount.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetDiscCount.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetDiscCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetDiscCount.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetDiscCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetDiscCount.Location = new System.Drawing.Point(325, 84);
+            this.bResetDiscCount.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetDiscCount.Name = "bResetDiscCount";
+            this.bResetDiscCount.Size = new System.Drawing.Size(24, 24);
+            this.bResetDiscCount.TabIndex = 66;
+            this.bResetDiscCount.UseVisualStyleBackColor = true;
+            this.bResetDiscCount.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetDiscCount
+            // 
+            this.bSetDiscCount.AutoSize = true;
+            this.bSetDiscCount.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetDiscCount.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetDiscCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetDiscCount.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetDiscCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetDiscCount.Location = new System.Drawing.Point(305, 84);
+            this.bSetDiscCount.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetDiscCount.Name = "bSetDiscCount";
+            this.bSetDiscCount.Size = new System.Drawing.Size(24, 24);
+            this.bSetDiscCount.TabIndex = 65;
+            this.bSetDiscCount.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetDiscCount.UseVisualStyleBackColor = true;
+            this.bSetDiscCount.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetAlbumPerformers
+            // 
+            this.bResetAlbumPerformers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetAlbumPerformers.AutoSize = true;
+            this.bResetAlbumPerformers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetAlbumPerformers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetAlbumPerformers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetAlbumPerformers.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetAlbumPerformers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetAlbumPerformers.Location = new System.Drawing.Point(622, 30);
+            this.bResetAlbumPerformers.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetAlbumPerformers.Name = "bResetAlbumPerformers";
+            this.bResetAlbumPerformers.Size = new System.Drawing.Size(24, 24);
+            this.bResetAlbumPerformers.TabIndex = 64;
+            this.bResetAlbumPerformers.UseVisualStyleBackColor = true;
+            this.bResetAlbumPerformers.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetAlbumPerformers
+            // 
+            this.bSetAlbumPerformers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSetAlbumPerformers.AutoSize = true;
+            this.bSetAlbumPerformers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetAlbumPerformers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetAlbumPerformers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetAlbumPerformers.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetAlbumPerformers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetAlbumPerformers.Location = new System.Drawing.Point(602, 30);
+            this.bSetAlbumPerformers.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetAlbumPerformers.Name = "bSetAlbumPerformers";
+            this.bSetAlbumPerformers.Size = new System.Drawing.Size(24, 24);
+            this.bSetAlbumPerformers.TabIndex = 63;
+            this.bSetAlbumPerformers.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetAlbumPerformers.UseVisualStyleBackColor = true;
+            this.bSetAlbumPerformers.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetAlbumName
+            // 
+            this.bResetAlbumName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetAlbumName.AutoSize = true;
+            this.bResetAlbumName.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetAlbumName.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetAlbumName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetAlbumName.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetAlbumName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetAlbumName.Location = new System.Drawing.Point(622, 3);
+            this.bResetAlbumName.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetAlbumName.Name = "bResetAlbumName";
+            this.bResetAlbumName.Size = new System.Drawing.Size(24, 24);
+            this.bResetAlbumName.TabIndex = 62;
+            this.bResetAlbumName.UseVisualStyleBackColor = true;
+            this.bResetAlbumName.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetAlbumName
+            // 
+            this.bSetAlbumName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSetAlbumName.AutoSize = true;
+            this.bSetAlbumName.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetAlbumName.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetAlbumName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetAlbumName.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetAlbumName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetAlbumName.Location = new System.Drawing.Point(602, 3);
+            this.bSetAlbumName.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetAlbumName.Name = "bSetAlbumName";
+            this.bSetAlbumName.Size = new System.Drawing.Size(24, 24);
+            this.bSetAlbumName.TabIndex = 61;
+            this.bSetAlbumName.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetAlbumName.UseVisualStyleBackColor = true;
+            this.bSetAlbumName.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetDiscNo
+            // 
+            this.bResetDiscNo.AutoSize = true;
+            this.bResetDiscNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetDiscNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetDiscNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetDiscNo.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetDiscNo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetDiscNo.Location = new System.Drawing.Point(179, 84);
+            this.bResetDiscNo.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetDiscNo.Name = "bResetDiscNo";
+            this.bResetDiscNo.Size = new System.Drawing.Size(24, 24);
+            this.bResetDiscNo.TabIndex = 60;
+            this.bResetDiscNo.UseVisualStyleBackColor = true;
+            this.bResetDiscNo.Click += new System.EventHandler(this.ResetterButton_Click);
             // 
             // cbConductor
             // 
@@ -327,25 +512,15 @@
             // 
             this.cbDiscCount.ContextMenuStrip = this.contextMenuStrip1;
             this.cbDiscCount.FormattingEnabled = true;
-            this.cbDiscCount.Location = new System.Drawing.Point(231, 87);
+            this.cbDiscCount.Location = new System.Drawing.Point(229, 87);
             this.cbDiscCount.Name = "cbDiscCount";
             this.cbDiscCount.Size = new System.Drawing.Size(74, 21);
             this.cbDiscCount.TabIndex = 56;
             // 
-            // bSetDiscCount
-            // 
-            this.bSetDiscCount.Location = new System.Drawing.Point(311, 87);
-            this.bSetDiscCount.Name = "bSetDiscCount";
-            this.bSetDiscCount.Size = new System.Drawing.Size(40, 21);
-            this.bSetDiscCount.TabIndex = 55;
-            this.bSetDiscCount.Text = "set";
-            this.bSetDiscCount.UseVisualStyleBackColor = true;
-            this.bSetDiscCount.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(209, 90);
+            this.label5.Location = new System.Drawing.Point(207, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 13);
             this.label5.TabIndex = 54;
@@ -363,11 +538,18 @@
             // 
             // bSetDiscNo
             // 
-            this.bSetDiscNo.Location = new System.Drawing.Point(163, 87);
+            this.bSetDiscNo.AutoSize = true;
+            this.bSetDiscNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetDiscNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetDiscNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetDiscNo.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetDiscNo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetDiscNo.Location = new System.Drawing.Point(159, 84);
+            this.bSetDiscNo.Margin = new System.Windows.Forms.Padding(0);
             this.bSetDiscNo.Name = "bSetDiscNo";
-            this.bSetDiscNo.Size = new System.Drawing.Size(40, 21);
+            this.bSetDiscNo.Size = new System.Drawing.Size(24, 24);
             this.bSetDiscNo.TabIndex = 52;
-            this.bSetDiscNo.Text = "set";
+            this.bSetDiscNo.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bSetDiscNo.UseVisualStyleBackColor = true;
             this.bSetDiscNo.Click += new System.EventHandler(this.SetterButtonClick);
             // 
@@ -383,28 +565,6 @@
             this.label7.Text = "Disc #";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // bSetYear
-            // 
-            this.bSetYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetYear.Location = new System.Drawing.Point(606, 114);
-            this.bSetYear.Name = "bSetYear";
-            this.bSetYear.Size = new System.Drawing.Size(40, 21);
-            this.bSetYear.TabIndex = 41;
-            this.bSetYear.Text = "set";
-            this.bSetYear.UseVisualStyleBackColor = true;
-            this.bSetYear.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
-            // bSetAlbumArtists
-            // 
-            this.bSetAlbumArtists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetAlbumArtists.Location = new System.Drawing.Point(606, 33);
-            this.bSetAlbumArtists.Name = "bSetAlbumArtists";
-            this.bSetAlbumArtists.Size = new System.Drawing.Size(40, 21);
-            this.bSetAlbumArtists.TabIndex = 40;
-            this.bSetAlbumArtists.Text = "set";
-            this.bSetAlbumArtists.UseVisualStyleBackColor = true;
-            this.bSetAlbumArtists.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
             // cbYear
             // 
             this.cbYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -416,16 +576,16 @@
             this.cbYear.Size = new System.Drawing.Size(517, 21);
             this.cbYear.TabIndex = 35;
             // 
-            // cbAlbumArtists
+            // cbAlbumPerformers
             // 
-            this.cbAlbumArtists.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cbAlbumPerformers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbAlbumArtists.ContextMenuStrip = this.contextMenuStrip1;
-            this.cbAlbumArtists.FormattingEnabled = true;
-            this.cbAlbumArtists.Location = new System.Drawing.Point(83, 33);
-            this.cbAlbumArtists.Name = "cbAlbumArtists";
-            this.cbAlbumArtists.Size = new System.Drawing.Size(517, 21);
-            this.cbAlbumArtists.TabIndex = 33;
+            this.cbAlbumPerformers.ContextMenuStrip = this.contextMenuStrip1;
+            this.cbAlbumPerformers.FormattingEnabled = true;
+            this.cbAlbumPerformers.Location = new System.Drawing.Point(83, 33);
+            this.cbAlbumPerformers.Name = "cbAlbumPerformers";
+            this.cbAlbumPerformers.Size = new System.Drawing.Size(517, 21);
+            this.cbAlbumPerformers.TabIndex = 33;
             // 
             // cbAlbumName
             // 
@@ -438,34 +598,29 @@
             this.cbAlbumName.Size = new System.Drawing.Size(517, 21);
             this.cbAlbumName.TabIndex = 32;
             // 
-            // bSetAlbumName
-            // 
-            this.bSetAlbumName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetAlbumName.Location = new System.Drawing.Point(606, 6);
-            this.bSetAlbumName.Name = "bSetAlbumName";
-            this.bSetAlbumName.Size = new System.Drawing.Size(40, 21);
-            this.bSetAlbumName.TabIndex = 32;
-            this.bSetAlbumName.Text = "set";
-            this.bSetAlbumName.UseVisualStyleBackColor = true;
-            this.bSetAlbumName.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
             // tpTrack
             // 
+            this.tpTrack.Controls.Add(this.bResetGenres);
+            this.tpTrack.Controls.Add(this.bSetGenres);
+            this.tpTrack.Controls.Add(this.bResetTrackCount);
+            this.tpTrack.Controls.Add(this.bSetTrackCount);
+            this.tpTrack.Controls.Add(this.bResetTrackNo);
+            this.tpTrack.Controls.Add(this.bSetTrackNo);
+            this.tpTrack.Controls.Add(this.bResetComposers);
             this.tpTrack.Controls.Add(this.bSetComposers);
+            this.tpTrack.Controls.Add(this.bResetTrackPerformers);
+            this.tpTrack.Controls.Add(this.bSetTrackPerformers);
+            this.tpTrack.Controls.Add(this.bResetTrackTitle);
+            this.tpTrack.Controls.Add(this.bSetTrackName);
             this.tpTrack.Controls.Add(this.cbComposers);
             this.tpTrack.Controls.Add(this.label13);
-            this.tpTrack.Controls.Add(this.bSetGenres);
             this.tpTrack.Controls.Add(this.cbGenres);
             this.tpTrack.Controls.Add(this.label8);
-            this.tpTrack.Controls.Add(this.cbTrackArtists);
+            this.tpTrack.Controls.Add(this.cbTrackPerformers);
             this.tpTrack.Controls.Add(this.cbTrackName);
-            this.tpTrack.Controls.Add(this.bSetTrackArtists);
-            this.tpTrack.Controls.Add(this.bSetTrackName);
             this.tpTrack.Controls.Add(this.cbTrackCount);
-            this.tpTrack.Controls.Add(this.bSetTrackCount);
             this.tpTrack.Controls.Add(this.label15);
             this.tpTrack.Controls.Add(this.cbTrackNo);
-            this.tpTrack.Controls.Add(this.bSetTrackNo);
             this.tpTrack.Controls.Add(this.label12);
             this.tpTrack.Controls.Add(this.label11);
             this.tpTrack.Controls.Add(this.label10);
@@ -477,16 +632,211 @@
             this.tpTrack.Text = "Track Info";
             this.tpTrack.UseVisualStyleBackColor = true;
             // 
+            // bResetGenres
+            // 
+            this.bResetGenres.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetGenres.AutoSize = true;
+            this.bResetGenres.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetGenres.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetGenres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetGenres.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetGenres.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetGenres.Location = new System.Drawing.Point(622, 111);
+            this.bResetGenres.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetGenres.Name = "bResetGenres";
+            this.bResetGenres.Size = new System.Drawing.Size(24, 24);
+            this.bResetGenres.TabIndex = 80;
+            this.bResetGenres.UseVisualStyleBackColor = true;
+            this.bResetGenres.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetGenres
+            // 
+            this.bSetGenres.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSetGenres.AutoSize = true;
+            this.bSetGenres.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetGenres.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetGenres.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetGenres.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetGenres.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetGenres.Location = new System.Drawing.Point(602, 111);
+            this.bSetGenres.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetGenres.Name = "bSetGenres";
+            this.bSetGenres.Size = new System.Drawing.Size(24, 24);
+            this.bSetGenres.TabIndex = 79;
+            this.bSetGenres.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetGenres.UseVisualStyleBackColor = true;
+            this.bSetGenres.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetTrackCount
+            // 
+            this.bResetTrackCount.AutoSize = true;
+            this.bResetTrackCount.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetTrackCount.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetTrackCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetTrackCount.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetTrackCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetTrackCount.Location = new System.Drawing.Point(325, 84);
+            this.bResetTrackCount.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetTrackCount.Name = "bResetTrackCount";
+            this.bResetTrackCount.Size = new System.Drawing.Size(24, 24);
+            this.bResetTrackCount.TabIndex = 78;
+            this.bResetTrackCount.UseVisualStyleBackColor = true;
+            this.bResetTrackCount.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetTrackCount
+            // 
+            this.bSetTrackCount.AutoSize = true;
+            this.bSetTrackCount.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetTrackCount.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetTrackCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetTrackCount.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetTrackCount.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetTrackCount.Location = new System.Drawing.Point(305, 84);
+            this.bSetTrackCount.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetTrackCount.Name = "bSetTrackCount";
+            this.bSetTrackCount.Size = new System.Drawing.Size(24, 24);
+            this.bSetTrackCount.TabIndex = 77;
+            this.bSetTrackCount.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetTrackCount.UseVisualStyleBackColor = true;
+            this.bSetTrackCount.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetTrackNo
+            // 
+            this.bResetTrackNo.AutoSize = true;
+            this.bResetTrackNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetTrackNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetTrackNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetTrackNo.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetTrackNo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetTrackNo.Location = new System.Drawing.Point(179, 84);
+            this.bResetTrackNo.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetTrackNo.Name = "bResetTrackNo";
+            this.bResetTrackNo.Size = new System.Drawing.Size(24, 24);
+            this.bResetTrackNo.TabIndex = 76;
+            this.bResetTrackNo.UseVisualStyleBackColor = true;
+            this.bResetTrackNo.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetTrackNo
+            // 
+            this.bSetTrackNo.AutoSize = true;
+            this.bSetTrackNo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetTrackNo.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetTrackNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetTrackNo.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetTrackNo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetTrackNo.Location = new System.Drawing.Point(159, 84);
+            this.bSetTrackNo.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetTrackNo.Name = "bSetTrackNo";
+            this.bSetTrackNo.Size = new System.Drawing.Size(24, 24);
+            this.bSetTrackNo.TabIndex = 75;
+            this.bSetTrackNo.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetTrackNo.UseVisualStyleBackColor = true;
+            this.bSetTrackNo.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetComposers
+            // 
+            this.bResetComposers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetComposers.AutoSize = true;
+            this.bResetComposers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetComposers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetComposers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetComposers.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetComposers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetComposers.Location = new System.Drawing.Point(622, 57);
+            this.bResetComposers.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetComposers.Name = "bResetComposers";
+            this.bResetComposers.Size = new System.Drawing.Size(24, 24);
+            this.bResetComposers.TabIndex = 74;
+            this.bResetComposers.UseVisualStyleBackColor = true;
+            this.bResetComposers.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
             // bSetComposers
             // 
             this.bSetComposers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetComposers.Location = new System.Drawing.Point(606, 60);
+            this.bSetComposers.AutoSize = true;
+            this.bSetComposers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetComposers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetComposers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetComposers.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetComposers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetComposers.Location = new System.Drawing.Point(602, 57);
+            this.bSetComposers.Margin = new System.Windows.Forms.Padding(0);
             this.bSetComposers.Name = "bSetComposers";
-            this.bSetComposers.Size = new System.Drawing.Size(40, 21);
-            this.bSetComposers.TabIndex = 64;
-            this.bSetComposers.Text = "set";
+            this.bSetComposers.Size = new System.Drawing.Size(24, 24);
+            this.bSetComposers.TabIndex = 73;
+            this.bSetComposers.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.bSetComposers.UseVisualStyleBackColor = true;
             this.bSetComposers.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetTrackPerformers
+            // 
+            this.bResetTrackPerformers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetTrackPerformers.AutoSize = true;
+            this.bResetTrackPerformers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetTrackPerformers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetTrackPerformers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetTrackPerformers.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetTrackPerformers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetTrackPerformers.Location = new System.Drawing.Point(622, 30);
+            this.bResetTrackPerformers.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetTrackPerformers.Name = "bResetTrackPerformers";
+            this.bResetTrackPerformers.Size = new System.Drawing.Size(24, 24);
+            this.bResetTrackPerformers.TabIndex = 72;
+            this.bResetTrackPerformers.UseVisualStyleBackColor = true;
+            this.bResetTrackPerformers.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetTrackPerformers
+            // 
+            this.bSetTrackPerformers.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSetTrackPerformers.AutoSize = true;
+            this.bSetTrackPerformers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetTrackPerformers.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetTrackPerformers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetTrackPerformers.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetTrackPerformers.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetTrackPerformers.Location = new System.Drawing.Point(602, 30);
+            this.bSetTrackPerformers.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetTrackPerformers.Name = "bSetTrackPerformers";
+            this.bSetTrackPerformers.Size = new System.Drawing.Size(24, 24);
+            this.bSetTrackPerformers.TabIndex = 71;
+            this.bSetTrackPerformers.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetTrackPerformers.UseVisualStyleBackColor = true;
+            this.bSetTrackPerformers.Click += new System.EventHandler(this.SetterButtonClick);
+            // 
+            // bResetTrackTitle
+            // 
+            this.bResetTrackTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bResetTrackTitle.AutoSize = true;
+            this.bResetTrackTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bResetTrackTitle.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bResetTrackTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bResetTrackTitle.Image = global::WinFormsToolbox.Properties.Resources.no;
+            this.bResetTrackTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bResetTrackTitle.Location = new System.Drawing.Point(622, 3);
+            this.bResetTrackTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.bResetTrackTitle.Name = "bResetTrackTitle";
+            this.bResetTrackTitle.Size = new System.Drawing.Size(24, 24);
+            this.bResetTrackTitle.TabIndex = 70;
+            this.bResetTrackTitle.UseVisualStyleBackColor = true;
+            this.bResetTrackTitle.Click += new System.EventHandler(this.ResetterButton_Click);
+            // 
+            // bSetTrackName
+            // 
+            this.bSetTrackName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.bSetTrackName.AutoSize = true;
+            this.bSetTrackName.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.bSetTrackName.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.bSetTrackName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bSetTrackName.Image = global::WinFormsToolbox.Properties.Resources.yes;
+            this.bSetTrackName.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bSetTrackName.Location = new System.Drawing.Point(602, 3);
+            this.bSetTrackName.Margin = new System.Windows.Forms.Padding(0);
+            this.bSetTrackName.Name = "bSetTrackName";
+            this.bSetTrackName.Size = new System.Drawing.Size(24, 24);
+            this.bSetTrackName.TabIndex = 69;
+            this.bSetTrackName.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.bSetTrackName.UseVisualStyleBackColor = true;
+            this.bSetTrackName.Click += new System.EventHandler(this.SetterButtonClick);
             // 
             // cbComposers
             // 
@@ -511,17 +861,6 @@
             this.label13.Text = "Composers";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // bSetGenres
-            // 
-            this.bSetGenres.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetGenres.Location = new System.Drawing.Point(606, 114);
-            this.bSetGenres.Name = "bSetGenres";
-            this.bSetGenres.Size = new System.Drawing.Size(40, 21);
-            this.bSetGenres.TabIndex = 61;
-            this.bSetGenres.Text = "set";
-            this.bSetGenres.UseVisualStyleBackColor = true;
-            this.bSetGenres.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
             // cbGenres
             // 
             this.cbGenres.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -545,16 +884,16 @@
             this.label8.Text = "Genres";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // cbTrackArtists
+            // cbTrackPerformers
             // 
-            this.cbTrackArtists.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.cbTrackPerformers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbTrackArtists.ContextMenuStrip = this.contextMenuStrip1;
-            this.cbTrackArtists.FormattingEnabled = true;
-            this.cbTrackArtists.Location = new System.Drawing.Point(83, 33);
-            this.cbTrackArtists.Name = "cbTrackArtists";
-            this.cbTrackArtists.Size = new System.Drawing.Size(517, 21);
-            this.cbTrackArtists.TabIndex = 56;
+            this.cbTrackPerformers.ContextMenuStrip = this.contextMenuStrip1;
+            this.cbTrackPerformers.FormattingEnabled = true;
+            this.cbTrackPerformers.Location = new System.Drawing.Point(83, 33);
+            this.cbTrackPerformers.Name = "cbTrackPerformers";
+            this.cbTrackPerformers.Size = new System.Drawing.Size(517, 21);
+            this.cbTrackPerformers.TabIndex = 56;
             // 
             // cbTrackName
             // 
@@ -568,51 +907,19 @@
             this.cbTrackName.Size = new System.Drawing.Size(517, 21);
             this.cbTrackName.TabIndex = 55;
             // 
-            // bSetTrackArtists
-            // 
-            this.bSetTrackArtists.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetTrackArtists.Location = new System.Drawing.Point(606, 33);
-            this.bSetTrackArtists.Name = "bSetTrackArtists";
-            this.bSetTrackArtists.Size = new System.Drawing.Size(40, 21);
-            this.bSetTrackArtists.TabIndex = 52;
-            this.bSetTrackArtists.Text = "set";
-            this.bSetTrackArtists.UseVisualStyleBackColor = true;
-            this.bSetTrackArtists.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
-            // bSetTrackName
-            // 
-            this.bSetTrackName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.bSetTrackName.Location = new System.Drawing.Point(606, 6);
-            this.bSetTrackName.Name = "bSetTrackName";
-            this.bSetTrackName.Size = new System.Drawing.Size(40, 21);
-            this.bSetTrackName.TabIndex = 51;
-            this.bSetTrackName.Text = "set";
-            this.bSetTrackName.UseVisualStyleBackColor = true;
-            this.bSetTrackName.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
             // cbTrackCount
             // 
             this.cbTrackCount.ContextMenuStrip = this.contextMenuStrip1;
             this.cbTrackCount.FormattingEnabled = true;
-            this.cbTrackCount.Location = new System.Drawing.Point(231, 87);
+            this.cbTrackCount.Location = new System.Drawing.Point(229, 87);
             this.cbTrackCount.Name = "cbTrackCount";
             this.cbTrackCount.Size = new System.Drawing.Size(74, 21);
             this.cbTrackCount.TabIndex = 50;
             // 
-            // bSetTrackCount
-            // 
-            this.bSetTrackCount.Location = new System.Drawing.Point(311, 87);
-            this.bSetTrackCount.Name = "bSetTrackCount";
-            this.bSetTrackCount.Size = new System.Drawing.Size(40, 21);
-            this.bSetTrackCount.TabIndex = 49;
-            this.bSetTrackCount.Text = "set";
-            this.bSetTrackCount.UseVisualStyleBackColor = true;
-            this.bSetTrackCount.Click += new System.EventHandler(this.SetterButtonClick);
-            // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(209, 90);
+            this.label15.Location = new System.Drawing.Point(207, 90);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(16, 13);
             this.label15.TabIndex = 48;
@@ -627,16 +934,6 @@
             this.cbTrackNo.Name = "cbTrackNo";
             this.cbTrackNo.Size = new System.Drawing.Size(74, 21);
             this.cbTrackNo.TabIndex = 47;
-            // 
-            // bSetTrackNo
-            // 
-            this.bSetTrackNo.Location = new System.Drawing.Point(163, 87);
-            this.bSetTrackNo.Name = "bSetTrackNo";
-            this.bSetTrackNo.Size = new System.Drawing.Size(40, 21);
-            this.bSetTrackNo.TabIndex = 46;
-            this.bSetTrackNo.Text = "set";
-            this.bSetTrackNo.UseVisualStyleBackColor = true;
-            this.bSetTrackNo.Click += new System.EventHandler(this.SetterButtonClick);
             // 
             // label12
             // 
@@ -676,9 +973,9 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.bReplaceTrackArtists);
-            this.tabPage1.Controls.Add(this.bResetTrackCount);
-            this.tabPage1.Controls.Add(this.bResetTrackNo);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -699,30 +996,6 @@
             this.bReplaceTrackArtists.UseVisualStyleBackColor = true;
             this.bReplaceTrackArtists.Click += new System.EventHandler(this.bReplaceTrackArtists_Click);
             // 
-            // bResetTrackCount
-            // 
-            this.bResetTrackCount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bResetTrackCount.Location = new System.Drawing.Point(6, 35);
-            this.bResetTrackCount.Name = "bResetTrackCount";
-            this.bResetTrackCount.Size = new System.Drawing.Size(640, 23);
-            this.bResetTrackCount.TabIndex = 33;
-            this.bResetTrackCount.Text = "Reset Track/Disc Info based on Disc and DiscCount (multiple discs)";
-            this.bResetTrackCount.UseVisualStyleBackColor = true;
-            this.bResetTrackCount.Click += new System.EventHandler(this.bResetTrackCount_Click);
-            // 
-            // bResetTrackNo
-            // 
-            this.bResetTrackNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.bResetTrackNo.Location = new System.Drawing.Point(6, 6);
-            this.bResetTrackNo.Name = "bResetTrackNo";
-            this.bResetTrackNo.Size = new System.Drawing.Size(640, 23);
-            this.bResetTrackNo.TabIndex = 33;
-            this.bResetTrackNo.Text = "Reset Track/DiscInfo based on the ordered list of file (one disc)";
-            this.bResetTrackNo.UseVisualStyleBackColor = true;
-            this.bResetTrackNo.Click += new System.EventHandler(this.bResetTrackNo_Click);
-            // 
             // checkBox1
             // 
             this.checkBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -742,8 +1015,9 @@
             this.cbInputColumnChooser.FormattingEnabled = true;
             this.cbInputColumnChooser.Location = new System.Drawing.Point(99, 198);
             this.cbInputColumnChooser.Name = "cbInputColumnChooser";
-            this.cbInputColumnChooser.Size = new System.Drawing.Size(517, 21);
+            this.cbInputColumnChooser.Size = new System.Drawing.Size(573, 21);
             this.cbInputColumnChooser.TabIndex = 33;
+            this.cbInputColumnChooser.SelectedIndexChanged += new System.EventHandler(this.cbInputColumnChooser_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -755,6 +1029,41 @@
             this.label14.TabIndex = 32;
             this.label14.Text = "Input Column";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Image = global::WinFormsToolbox.WinFormsResources.folder1;
+            this.button1.Location = new System.Drawing.Point(641, 8);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(31, 23);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.ChooseFolderClick);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(6, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(640, 23);
+            this.button2.TabIndex = 34;
+            this.button2.Text = "Reset Track/Disc Info based on Disc and DiscCount (multiple discs)";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.bResetTrackCount_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(6, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(640, 23);
+            this.button4.TabIndex = 35;
+            this.button4.Text = "Reset Track/DiscInfo based on the ordered list of file (one disc)";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.bResetTrackNo_Click);
             // 
             // Mp3FixerMainForm
             // 
@@ -817,40 +1126,52 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.ComboBox cbAlbumName;
         private System.Windows.Forms.ComboBox cbYear;
-        private System.Windows.Forms.ComboBox cbAlbumArtists;
+        private System.Windows.Forms.ComboBox cbAlbumPerformers;
         private System.Windows.Forms.ComboBox cbTrackNo;
         private System.Windows.Forms.ComboBox cbTrackCount;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cbTrackArtists;
+        private System.Windows.Forms.ComboBox cbTrackPerformers;
         private System.Windows.Forms.ComboBox cbTrackName;
-        private System.Windows.Forms.Button bSetYear;
-        private System.Windows.Forms.Button bSetAlbumArtists;
-        private System.Windows.Forms.Button bSetAlbumName;
-        private System.Windows.Forms.Button bSetTrackArtists;
-        private System.Windows.Forms.Button bSetTrackName;
-        private System.Windows.Forms.Button bSetTrackCount;
-        private System.Windows.Forms.Button bSetTrackNo;
-        private System.Windows.Forms.Button bSetGenres;
         private System.Windows.Forms.ComboBox cbGenres;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox cbDiscCount;
-        private System.Windows.Forms.Button bSetDiscCount;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbDiscNo;
         private System.Windows.Forms.Button bSetDiscNo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button bSetConductor;
         private System.Windows.Forms.ComboBox cbConductor;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button bSetComposers;
         private System.Windows.Forms.ComboBox cbComposers;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button bResetTrackNo;
-        private System.Windows.Forms.Button bResetTrackCount;
         private System.Windows.Forms.Button bReplaceTrackArtists;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.ComboBox cbInputColumnChooser;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button bResetDiscNo;
+        private System.Windows.Forms.Button bResetYear;
+        private System.Windows.Forms.Button bSetYear;
+        private System.Windows.Forms.Button bResetConductor;
+        private System.Windows.Forms.Button bSetConductor;
+        private System.Windows.Forms.Button bResetDiscCount;
+        private System.Windows.Forms.Button bSetDiscCount;
+        private System.Windows.Forms.Button bResetAlbumPerformers;
+        private System.Windows.Forms.Button bSetAlbumPerformers;
+        private System.Windows.Forms.Button bResetAlbumName;
+        private System.Windows.Forms.Button bSetAlbumName;
+        private System.Windows.Forms.Button bResetGenres;
+        private System.Windows.Forms.Button bSetGenres;
+        private System.Windows.Forms.Button bResetTrackCount;
+        private System.Windows.Forms.Button bSetTrackCount;
+        private System.Windows.Forms.Button bResetTrackNo;
+        private System.Windows.Forms.Button bSetTrackNo;
+        private System.Windows.Forms.Button bResetComposers;
+        private System.Windows.Forms.Button bSetComposers;
+        private System.Windows.Forms.Button bResetTrackPerformers;
+        private System.Windows.Forms.Button bSetTrackPerformers;
+        private System.Windows.Forms.Button bResetTrackTitle;
+        private System.Windows.Forms.Button bSetTrackName;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button2;
     }
 }
 

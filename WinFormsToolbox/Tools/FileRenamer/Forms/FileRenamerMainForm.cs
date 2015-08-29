@@ -141,12 +141,12 @@ namespace WinFormsToolbox.FileRenamer.Forms
             foreach (string s in patterns)
             {
                 if(!s.Equals(string.Empty))
-                    outs.WriteLine(string.Format("pattern:{0}", s));
+                    outs.WriteLine($"pattern:{s}");
             }
             foreach (string s in replacements)
             {
                 if (!s.Equals(string.Empty))
-                    outs.WriteLine(string.Format("replacement:{0}", s));
+                    outs.WriteLine($"replacement:{s}");
             }
             outs.Flush();
             outs.Close();
@@ -197,7 +197,7 @@ namespace WinFormsToolbox.FileRenamer.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -285,7 +285,7 @@ namespace WinFormsToolbox.FileRenamer.Forms
                         DateTime.Now.Year != 2012 ? " - " + DateTime.Now.Year.ToString() 
                                                   : ""
                         ),
-                "About",
+                @"About",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Asterisk
             );

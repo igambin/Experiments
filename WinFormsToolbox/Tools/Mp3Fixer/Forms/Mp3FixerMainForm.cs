@@ -24,6 +24,7 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
 
         List<string> _patterns;
 
+        private string _selectedColumn;
 
         List<string> _columns = new List<string>
         {
@@ -37,9 +38,9 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
             "DiscNo",
             "DiscCount",
             "Conductor",
-             "Composers",
-             "Year",
-             "Genres"
+            "Composers",
+            "Year",
+            "Genres"
         }; 
 
         string _x1;
@@ -61,6 +62,7 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
 
             _bsc2 = new BindingSource { DataSource = _columns};
             cbInputColumnChooser.DataSource = _bsc2;
+            _selectedColumn = cbInputColumnChooser.SelectedText;
 
             _patterns = new List<string>();
             _bsc1 = new BindingSource {DataSource = _patterns};
@@ -267,14 +269,14 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
 
                     if (comboBox != null && sourcePropertyName != null)
                     {
-                        if (string.IsNullOrWhiteSpace(comboBox.Text))
+                        if (string.IsNullOrEmpty(comboBox.Text))
                         {
                             var methodResetter = target.GetMethod($"Reset{propName}");
                             _files.ForEach(x => methodResetter.Invoke(x, null));
                             return;
                         }
 
-                        if (!string.IsNullOrWhiteSpace(comboBox1.Text))
+                        if (!string.IsNullOrEmpty(comboBox1.Text))
                         {
                             var pattern = new Regex(comboBox1.Text);
                             var propSetter = target.GetProperty(propName);
@@ -284,7 +286,7 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
                             {
                                 var input = propGetter.GetValue(info, null) as string ?? string.Empty;
                                 _match = pattern.Match(input);
-                                if (_match.Success && _match.Groups.Count > 1)
+                                if (_match.Success)
                                 {
                                     var newValue = pattern.Replace(input, comboBox.Text);
                                     var newValueType = propSetter.PropertyType;
@@ -341,7 +343,10 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
 
         private void bReplaceTrackArtists_Click(object sender, EventArgs e)
         {
-            _files.ForEach(x => x.TrackArtists = x.AlbumArtists);
+            _files.ForEach(x => x.TrackPerformers = x.AlbumPerformers);
+
+            _bs.ResetBindings(false);
+
         }
 
         private void UpdateMp3Click(object sender, EventArgs e)
@@ -353,6 +358,36 @@ namespace WinFormsToolbox.Mp3Fixer.Forms
                 _patterns.Add(_x1);
             UpdateRegexBoxes();
             backgroundWorker1.RunWorkerAsync();
+        }
+
+
+        private void cbInputColumnChooser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var oldCol = _selectedColumn;
+            _selectedColumn = cbInputColumnChooser.SelectedText;
+
+        }
+
+        private void ResetterButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var button = sender as Button;
+                if (button != null)
+                {
+                    var propName = button.Name.Substring(6);
+                    Type target = typeof(MyMp3FileInfo);
+
+                    var methodResetter = target.GetMethod($"Reset{propName}");
+                    _files.ForEach(x => methodResetter.Invoke(x, null));
+
+                    _bs.ResetBindings(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, @"Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         void editor_SaveButtonClicked(object sender, EventArgs e)
