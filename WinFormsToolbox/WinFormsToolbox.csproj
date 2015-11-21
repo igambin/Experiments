@@ -113,15 +113,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Toolbox.Core\Toolbox.Core.csproj">
-      <Project>{7c5f5e24-9129-43ed-ba8d-ac68ee1cb7bd}</Project>
+      <Project>{7C5F5E24-9129-43ED-BA8D-AC68EE1CB7BD}</Project>
       <Name>Toolbox.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\folder.png" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

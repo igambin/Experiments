@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 
 namespace XPerimentsTest.BoundariesTests
 {
@@ -11,8 +12,14 @@ namespace XPerimentsTest.BoundariesTests
         [Test]
         public void CallMethodThatCallsAMethodOfAnotherDLLThatThrowsAnInternalException()
         {
-
-            BoundariesI.Class1.DoSomething1();
+            try
+            {
+                BoundariesI.Class1.DoSomething1();
+            }
+            catch (Exception e)
+            {
+                // nothing
+            }
         }
     }
 }

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<root>
+    <TestData>
+        <Name>Tom</Name>
+        <Alter>28</Alter>
+        <Gehalt>45000</Gehalt>
+        <Bonus>2,45</Bonus>
+    </TestData>
+    <TestData>
+        <Name>Mike</Name>
+        <Alter>54</Alter>
+        <Gehalt>70000</Gehalt>
+        <Bonus>3,64</Bonus>
+    </TestData>
+</root>
