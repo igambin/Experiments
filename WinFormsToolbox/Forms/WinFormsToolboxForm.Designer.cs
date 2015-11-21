@@ -1,4 +1,4 @@
-﻿namespace WinFormsToolbox
+﻿namespace WinFormsToolbox.Forms
 {
     partial class WinFormsToolboxForm
     {

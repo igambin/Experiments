@@ -1,19 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Toolbox.Core;
 using WinFormsToolbox.Interfaces;
 
-namespace WinFormsToolbox
+namespace WinFormsToolbox.Forms
 {
     public partial class WinFormsToolboxForm : Form
     {

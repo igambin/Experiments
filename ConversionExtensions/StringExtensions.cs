@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace ConversionExtensions
+namespace IG.Extensions
 {
     public static class StringExtensions
     {

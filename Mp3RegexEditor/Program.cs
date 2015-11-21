@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsToolbox.Tools.Mp3Fixer;
+using WinFormsToolbox.Tools.Mp3Fixer.Forms;
 
 namespace Mp3RegexEditor
 {
@@ -16,7 +18,7 @@ namespace Mp3RegexEditor
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
+            Application.Run(new Mp3FixerMainForm());
         }
     }
 }

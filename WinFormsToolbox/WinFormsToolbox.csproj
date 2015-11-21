@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WinFormsToolbox</RootNamespace>
     <AssemblyName>WinFormsToolbox</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +46,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="taglib-sharp">
+      <HintPath>..\packages\taglib.2.1.0.0\lib\taglib-sharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\WinFormsToolboxForm.cs">
@@ -72,6 +76,14 @@
       <DependentUpon>FileRenamerMainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\FileRenamer\Models\MyFileInfo.cs" />
+    <Compile Include="Tools\Mp3Fixer\Forms\Mp3FixerMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tools\Mp3Fixer\Forms\Mp3FixerMainForm.Designer.cs">
+      <DependentUpon>Mp3FixerMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\Mp3Fixer\Models\MyMp3FileInfo.cs" />
+    <Compile Include="Tools\Mp3Fixer\Mp3TagFixer.cs" />
     <Compile Include="WinFormsResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,12 +100,16 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms\EditorForm.resx">
       <DependentUpon>EditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\FileRenamer\Forms\FileRenamerMainForm.resx">
       <DependentUpon>FileRenamerMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tools\Mp3Fixer\Forms\Mp3FixerMainForm.resx">
+      <DependentUpon>Mp3FixerMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WinFormsResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -116,10 +132,18 @@
     <None Include="Resources\folder.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ConversionExtensions\IG.Extensions.csproj">
+      <Project>{c91b2f2e-4e32-4b76-9e84-1b0603ea187c}</Project>
+      <Name>IG.Extensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Toolbox.Core\Toolbox.Core.csproj">
       <Project>{7C5F5E24-9129-43ED-BA8D-AC68EE1CB7BD}</Project>
       <Name>Toolbox.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Tools\Mp3Fixer\Icons\no.png" />
+    <Content Include="Tools\Mp3Fixer\Icons\yes.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConversionExtensions
+namespace IG.Extensions
 {
     public static class DateTimeExtensions
     {
@@ -17,10 +17,16 @@ namespace ConversionExtensions
             return gebDat.AddYears(alter) > dayX ? --alter : alter;
         }
 
-        public static int GetMonthsUntil(this DateTime erstZulassung, DateTime letzteZulassung) =>  letzteZulassung.Year * 12
-                                                                                                    + letzteZulassung.Month
-                                                                                                    - erstZulassung.Year * 12
-                                                                                                    - erstZulassung.Month;
+        /// <summary>
+        /// Get number of months from day Y to day X
+        /// </summary>
+        /// <param name="dayX"></param>
+        /// <param name="dayY"></param>
+        /// <returns></returns>
+        public static int GetMonthsUntilX(this DateTime dayX, DateTime dayY) =>     dayY.Year * 12
+                                                                                            + dayY.Month
+                                                                                            - dayX.Year * 12
+                                                                                            - dayX.Month;
 
     }
 }

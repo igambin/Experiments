@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 using Toolbox.Core;
 using WinFormsToolbox.Interfaces;
 using System.Windows.Forms;
-using WinFormsToolbox.FileRenamer.Forms;
 using WinFormsToolbox.Models;
-using WinFormsToolbox.Mp3Fixer.Forms;
+using WinFormsToolbox.Tools.Mp3Fixer.Forms;
 
 namespace WinFormsToolbox.Tools.Mp3Fixer
 {

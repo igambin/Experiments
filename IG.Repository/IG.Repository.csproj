@@ -61,9 +61,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ConversionExtensions\ExtensionCollection.csproj">
+    <ProjectReference Include="..\ConversionExtensions\IG.Extensions.csproj">
       <Project>{c91b2f2e-4e32-4b76-9e84-1b0603ea187c}</Project>
-      <Name>ExtensionCollection</Name>
+      <Name>IG.Extensions</Name>
     </ProjectReference>
     <ProjectReference Include="..\IG.Caching\IG.Caching.csproj">
       <Project>{bd96bc5f-9f6f-4168-8d68-924ecdeacbad}</Project>

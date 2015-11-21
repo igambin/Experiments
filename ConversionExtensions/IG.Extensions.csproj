@@ -7,8 +7,8 @@
     <ProjectGuid>{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExtensionCollection</RootNamespace>
-    <AssemblyName>ExtensionCollection</AssemblyName>
+    <RootNamespace>IG.Extensions</RootNamespace>
+    <AssemblyName>IG.Extensions</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -40,9 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByteArrayExtensions.cs" />
+    <Compile Include="ByteArray.cs" />
     <Compile Include="DateTimeExtensions.cs" />
-    <Compile Include="GenericConversionExtensions.cs" />
+    <Compile Include="GenericConversion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>

@@ -1,8 +1,8 @@
 ﻿using System.Text;
 
-namespace ConversionExtensions
+namespace IG.Extensions
 {
-    public static class ByteArrayExtensions
+    public static class ByteArray
     {
         public static string AsString(this byte[] arr) => new UTF8Encoding().GetString(arr);
 

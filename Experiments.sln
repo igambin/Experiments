@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.Validations", "IG.Valida
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.ResourceAssistant", "ResourceAssistant\IG.ResourceAssistant.csproj", "{D6A36CCF-680B-4510-BF36-EC56CA8F244C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionCollection", "ConversionExtensions\ExtensionCollection.csproj", "{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.Extensions", "ConversionExtensions\IG.Extensions.csproj", "{C91B2F2E-4E32-4B76-9E84-1B0603EA187C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IG.XmlAssistant", "XmlTools\IG.XmlAssistant.csproj", "{42D3C8D0-56E9-418F-9274-689209B4F169}"
 EndProject

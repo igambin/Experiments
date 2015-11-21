@@ -1,4 +1,4 @@
-﻿namespace WinFormsToolbox.Mp3Fixer.Forms
+﻿namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
 {
     partial class Mp3FixerMainForm
     {

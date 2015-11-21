@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using WinFormsToolbox.FileRenamer.Models;
 using WinFormsToolbox.Forms;
+using WinFormsToolbox.Tools.FileRenamer.Models;
 
-namespace WinFormsToolbox.FileRenamer.Forms
+namespace WinFormsToolbox.Tools.FileRenamer.Forms
 {
     public partial class FileRenamerMainForm : Form
     {

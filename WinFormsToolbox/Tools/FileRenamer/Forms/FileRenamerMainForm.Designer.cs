@@ -1,4 +1,4 @@
-﻿namespace WinFormsToolbox.FileRenamer.Forms
+﻿namespace WinFormsToolbox.Tools.FileRenamer.Forms
 {
     partial class FileRenamerMainForm
     {

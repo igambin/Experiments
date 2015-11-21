@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace WinFormsToolbox.FileRenamer.Models
+namespace WinFormsToolbox.Tools.FileRenamer.Models
 {
     class MyFileInfo : IComparable
     {

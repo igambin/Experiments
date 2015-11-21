@@ -1,5 +1,4 @@
-﻿using ConversionExtensions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,9 +7,10 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WinFormsToolbox.Forms;
-using WinFormsToolbox.Mp3Fixer.Models;
+using WinFormsToolbox.Tools.Mp3Fixer.Models;
+using IG.Extensions;
 
-namespace WinFormsToolbox.Mp3Fixer.Forms
+namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
 {
     public partial class Mp3FixerMainForm : Form
     {

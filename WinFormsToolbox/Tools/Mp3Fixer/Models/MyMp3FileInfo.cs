@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
+using System.Windows.Forms;
 using Mp3Tag = TagLib.Tag;
 using Mp3Info = TagLib.File;
-using System.Windows.Forms;
 
-namespace WinFormsToolbox.Mp3Fixer.Models
+namespace WinFormsToolbox.Tools.Mp3Fixer.Models
 {
     internal class MyMp3FileInfo : IComparable
     {

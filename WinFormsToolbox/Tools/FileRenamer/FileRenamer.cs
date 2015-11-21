@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 using Toolbox.Core;
 using WinFormsToolbox.Interfaces;
 using System.Windows.Forms;
-using WinFormsToolbox.FileRenamer.Forms;
 using WinFormsToolbox.Models;
+using WinFormsToolbox.Tools.FileRenamer.Forms;
 
 namespace WinFormsToolbox.Tools.FileRenamer
 {

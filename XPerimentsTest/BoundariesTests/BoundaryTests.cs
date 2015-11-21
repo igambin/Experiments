@@ -16,7 +16,7 @@ namespace XPerimentsTest.BoundariesTests
             {
                 BoundariesI.Class1.DoSomething1();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // nothing
             }
