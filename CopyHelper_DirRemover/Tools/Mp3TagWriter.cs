@@ -63,7 +63,7 @@ namespace Toolbox.Console
                     var getFileInfo = new Regex(@"(\d+)[-\s._]*(.+)\.mp3");
 
                     var match = getFileInfo.Match(file.Name);
-
+                    
                     if(match.Success && match.Groups.Count>=3) {
                         tag.Track = recountTrackIds ? fileCount : uint.Parse(match.Groups[1].Value);
                         var title = match.Groups[2].Value.Replace('_', ' ');
