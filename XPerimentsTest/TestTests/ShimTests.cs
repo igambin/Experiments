@@ -11,7 +11,7 @@ namespace XPerimentsTest.TestTests
         [TestMethod]
         public void ShimDateTimeTest()
         {
-            using (ShimsContext.Create())
+            using (var x = ShimsContext.Create())
             {
                 ShimDateTime.NowGet = () => new DateTime(2015, 1, 1);
                 Assert.AreEqual("01.01.2015", DateTime.Now.ToShortDateString());

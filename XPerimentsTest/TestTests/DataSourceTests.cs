@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Fakes;
 using System.Globalization;
 using System.Security.Cryptography;
 using Microsoft.QualityTools.Testing.Fakes;
@@ -13,16 +12,13 @@ namespace XPerimentsTest.TestTests
     {
         public TestContext TestContext { get; set; }
 
-        private dynamic ExtractRowDataFromContext()
+        private dynamic ExtractRowDataFromContext() => new
         {
-            return new
-            {
-                Name = TestContext.DataRow["Name"],
-                Alter = Convert.ToInt32(TestContext.DataRow["Alter"], CultureInfo.CurrentCulture),
-                Gehalt = Convert.ToInt32(TestContext.DataRow["Gehalt"], CultureInfo.CurrentCulture),
-                Bonus = Convert.ToDecimal(TestContext.DataRow["Bonus"], CultureInfo.CurrentCulture)
-            };
-        }
+            Name = TestContext.DataRow["Name"],
+            Alter = Convert.ToInt32(TestContext.DataRow["Alter"], CultureInfo.CurrentCulture),
+            Gehalt = Convert.ToInt32(TestContext.DataRow["Gehalt"], CultureInfo.CurrentCulture),
+            Bonus = Convert.ToDecimal(TestContext.DataRow["Bonus"], CultureInfo.CurrentCulture)
+        };
 
         private void PrintData()
         {
