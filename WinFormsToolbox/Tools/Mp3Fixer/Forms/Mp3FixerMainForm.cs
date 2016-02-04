@@ -24,9 +24,9 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
 
         List<string> _patterns;
 
-        private string _selectedColumn;
+        //private string _selectedColumn;
 
-        List<string> _columns = new List<string>
+        readonly List<string> _columns = new List<string>
         {
             "FileName",
             "TrackName",
@@ -62,7 +62,7 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
 
             _bsc2 = new BindingSource { DataSource = _columns};
             cbInputColumnChooser.DataSource = _bsc2;
-            _selectedColumn = cbInputColumnChooser.SelectedText;
+            //_selectedColumn = cbInputColumnChooser.SelectedText;
 
             _patterns = new List<string>();
             _bsc1 = new BindingSource {DataSource = _patterns};
@@ -121,7 +121,7 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
             {
                 value = tb.Text.GetTOrDefault<TMember>();
             }
-            else if(!string.IsNullOrWhiteSpace(groups?[patternKey]?.Value))
+            else if(!string.IsNullOrWhiteSpace(groups[patternKey]?.Value))
             {
                 value = groups[patternKey].Value.Trim().GetTOrDefault<TMember>();
             }
@@ -132,7 +132,7 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
                 return;
             }
 
-            (member?.Member as PropertyInfo)?.SetValue(target, value); ;
+            (member?.Member as PropertyInfo)?.SetValue(target, value);
             
         }
 
@@ -157,7 +157,7 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
             foreach (string s in _patterns)
             {
                 if(!s.Equals(string.Empty))
-                    outs.WriteLine(string.Format("pattern:{0}", s));
+                    outs.WriteLine($"pattern:{s}");
             }
             outs.Flush();
             outs.Close();
@@ -218,8 +218,8 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
         {
             _editorListType = "patterns";
             _editor = new EditorForm("Edit Search-Patterns", _patterns.ToArray());
-            _editor.CancelButtonClicked += new EventHandler(editor_CancelButtonClicked);
-            _editor.SaveButtonClicked += new EventHandler(editor_SaveButtonClicked);
+            _editor.CancelButtonClicked += editor_CancelButtonClicked;
+            _editor.SaveButtonClicked += editor_SaveButtonClicked;
             _editor.ShowDialog();
         }
 
@@ -260,7 +260,7 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
                 if (button != null)
                 {
                     var propName = button.Name.Substring(4);
-                    var comboBox = this.Controls.Find($"cb{propName}", true).First() as ComboBox;
+                    var comboBox = Controls.Find($"cb{propName}", true).First() as ComboBox;
 
                     var sourcePropertyName = cbInputColumnChooser.SelectedItem as string;
 
@@ -363,8 +363,8 @@ namespace WinFormsToolbox.Tools.Mp3Fixer.Forms
 
         private void cbInputColumnChooser_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var oldCol = _selectedColumn;
-            _selectedColumn = cbInputColumnChooser.SelectedText;
+            //var oldCol = _selectedColumn;
+            //_selectedColumn = cbInputColumnChooser.SelectedText;
 
         }
 

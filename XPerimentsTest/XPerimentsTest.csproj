@@ -108,7 +108,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BoundariesTests\BoundaryTests.cs" />
-    <Compile Include="MiniImplsTests\AreAnagramsTests.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\Truck.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\CarProcessor.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\DieselMotor.cs" />
