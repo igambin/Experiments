@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AreAnagrams.cs" />
+    <Compile Include="StringQuestions.cs" />
     <Compile Include="ArrayManipulation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

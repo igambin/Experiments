@@ -3,7 +3,7 @@ using CodingInterview.Interfaces;
 
 namespace CodingInterview.Solutions
 {
-    public class AreAnagrams : IAreAnagrams
+    public class StringQuestions : IStringQuestions
     {
         public bool AreStringsAnagrams(string a, string b)
         {

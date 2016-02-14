@@ -6,9 +6,9 @@ namespace CodingInterview.Tests
     public partial class CodingInterviewTests
     {
         [TestFixture]
-        public class AreAnagramsTests
+        public class StringQuestionsTests
         {
-            private readonly IAreAnagrams _areAnagramsWorker = new Solutions.AreAnagrams();
+            private readonly IStringQuestions _areAnagramsWorker = new Solutions.StringQuestions();
 
             [Test]
             public void Test_momdad_dadmom_true()

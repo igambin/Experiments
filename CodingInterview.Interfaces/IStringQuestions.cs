@@ -1,6 +1,6 @@
 ﻿namespace CodingInterview.Interfaces
 {
-    public interface IAreAnagrams
+    public interface IStringQuestions
     {
         bool AreStringsAnagrams(string a, string b);
     }

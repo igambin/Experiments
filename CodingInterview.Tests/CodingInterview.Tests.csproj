@@ -55,7 +55,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ArrayManipulationTests.cs" />
-    <Compile Include="AreAnagramsTests.cs" />
+    <Compile Include="StringQuestionsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
