@@ -1,11 +1,9 @@
 ﻿using CodingInterview.Interfaces;
-using Solutions = CodingInterview.Solutions;
-using Tasks = CodingInterview.Tasks;
 using NUnit.Framework;
 
 namespace CodingInterview.Tests
 {
-    public class CodingInterviewTests
+    public partial class CodingInterviewTests
     {
         [TestFixture]
         public class AreAnagramsTests

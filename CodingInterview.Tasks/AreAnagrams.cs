@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using CodingInterview.Interfaces;
 
 namespace CodingInterview.Tasks
