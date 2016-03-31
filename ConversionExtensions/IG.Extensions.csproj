@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ByteArray.cs" />
+    <Compile Include="ByteArrayExtensions.cs" />
     <Compile Include="DateTimeExtensions.cs" />
     <Compile Include="GenericConversion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

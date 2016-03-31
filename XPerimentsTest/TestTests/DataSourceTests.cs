@@ -58,11 +58,11 @@ namespace XPerimentsTest.TestTests
         [TestMethod]
         public void AccessMdbFileDataSourceTest() => PrintData();
 
-        [DataSource("System.Data.SqlClient",
-                    "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=XPerimentsTest.TestTests.TestDataContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
-                    "dbo.TestDatas", DataAccessMethod.Sequential)]
-        [TestMethod]
-        public void LocalDbDataSourceTest() => PrintData();
+        //[DataSource("System.Data.SqlClient",
+        //            "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=XPerimentsTest.TestTests.TestDataContext;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False",
+        //            "dbo.TestDatas", DataAccessMethod.Sequential)]
+        //[TestMethod]
+        //public void LocalDbDataSourceTest() => PrintData();
 
         [DataSource("System.Data.SqlServerCe.4.0",
                     "Data Source=TestData.sdf",
