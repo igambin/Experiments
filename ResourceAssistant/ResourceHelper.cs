@@ -14,10 +14,7 @@ namespace ResourceAssistant
         /// <param name="assembly"></param>
         /// <returns></returns>
         public static IEnumerable<string> GetResources(Assembly assembly = null)
-        {
-            assembly = assembly ?? Assembly.GetCallingAssembly();
-            return assembly.GetManifestResourceNames();
-        } 
+            => assembly = (assembly ?? Assembly.GetCallingAssembly()).GetManifestResourceNames();
 
         /// <summary>
         /// Will read files marked as "EmbeddedResource" from the directory "ResourceHelper" of the calling Assembly
@@ -25,10 +22,7 @@ namespace ResourceAssistant
         /// <param name="filename"></param>
         /// <returns></returns>
         public static byte[] ExtractResource(string filename, bool cache = true)
-        {
-            var assembly = Assembly.GetCallingAssembly();
-            return ExtractResource(filename, assembly, null, cache);
-        }
+            => ExtractResource(filename, Assembly.GetCallingAssembly(), null, cache);
 
         /// <summary>
         /// Will read files marked as "EmbeddedResource" from the directory (given as argument) of the calling Assembly
@@ -37,11 +31,7 @@ namespace ResourceAssistant
         /// <param name="resourceDirectory"></param>
         /// <returns></returns>
         public static byte[] ExtractResource(string filename, string resourceDirectory, bool cache = true)
-        {
-            var assembly = Assembly.GetCallingAssembly();
-            return ExtractResource(filename, assembly, resourceDirectory, cache);
-        }
-
+            => ExtractResource(filename, Assembly.GetCallingAssembly(), resourceDirectory, cache);
 
         /// <summary>
         /// Will read files marked as "EmbeddedResource" from the directory "ResourceHelper" of the given Assembly
@@ -49,7 +39,8 @@ namespace ResourceAssistant
         /// <param name="filename"></param>
         /// <param name="assembly"></param>
         /// <returns></returns>
-        public static byte[] ExtractResource(string filename, Assembly assembly, bool cache = true) => ExtractResource(filename, assembly, null, cache);
+        public static byte[] ExtractResource(string filename, Assembly assembly, bool cache = true) 
+            => ExtractResource(filename, assembly, null, cache);
 
         /// <summary>
         /// Will read files marked as "EmbeddedResource" from the determined ResourceDirectory of the Assembly passed as argument
@@ -62,7 +53,7 @@ namespace ResourceAssistant
         {
             resourceDirectory = resourceDirectory ?? "Resources";
 
-            var resourceKey = string.Format("{0}.{1}.{2}", assembly.GetName().Name, resourceDirectory, filename);
+            var resourceKey = $"{assembly.GetName().Name}.{resourceDirectory}.{filename}";
 
             var ba = new byte[] { };
 
