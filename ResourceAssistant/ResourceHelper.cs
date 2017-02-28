@@ -14,7 +14,7 @@ namespace ResourceAssistant
         /// <param name="assembly"></param>
         /// <returns></returns>
         public static IEnumerable<string> GetResources(Assembly assembly = null)
-            => assembly = (assembly ?? Assembly.GetCallingAssembly()).GetManifestResourceNames();
+            => (assembly ?? Assembly.GetCallingAssembly()).GetManifestResourceNames();
 
         /// <summary>
         /// Will read files marked as "EmbeddedResource" from the directory "ResourceHelper" of the calling Assembly

@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XPerimentsTest</RootNamespace>
     <AssemblyName>XPerimentsTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -50,6 +50,7 @@
       <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -108,6 +109,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BoundariesTests\BoundaryTests.cs" />
+    <Compile Include="CommonLoggingTests\Environment\Person.cs" />
+    <Compile Include="CommonLoggingTests\CommonLoggingTests.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\Truck.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\CarProcessor.cs" />
     <Compile Include="SelfmadeIoCTests\Environment\DieselMotor.cs" />
@@ -130,13 +133,13 @@
       <Project>{db8d365f-7bd0-430f-af92-282e3a7583ff}</Project>
       <Name>BoundariesI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CommonLogging\CommonLogging.csproj">
+      <Project>{445124B0-EAB3-4C45-8AAE-23D8CA2FA666}</Project>
+      <Name>CommonLogging</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EFDecoupled\EFDecoupled.csproj">
       <Project>{275d8df0-1654-4453-91e9-5287288866ed}</Project>
       <Name>EFDecoupled</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Experiments\Experiments.csproj">
-      <Project>{8058577a-9ee0-4229-be42-fc78e062c7c1}</Project>
-      <Name>Experiments</Name>
     </ProjectReference>
     <ProjectReference Include="..\SelfmadeIoC\SelfmadeIoC.csproj">
       <Project>{049c490a-b080-4b5d-a29b-54b59601356e}</Project>

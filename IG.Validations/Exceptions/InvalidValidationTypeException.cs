@@ -6,7 +6,7 @@ namespace IG.Validations.Exceptions
     public class InvalidValidationTypeException : Exception
     {
         public InvalidValidationTypeException(Type type)
-            : base(FrameworkMessages.InvalidValidationTypeFormat(type.Name))
+            : base(FrameworkMessages.InvalidValidationType.FormattedMessage(type.Name))
         {
 
         }
