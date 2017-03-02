@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.ComponentModel;
 using CommonLogging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using XPerimentsTest.CommonLoggingTests.Environment;
@@ -63,18 +64,13 @@ namespace XPerimentsTest.CommonLoggingTests
         [TestMethod]
         public void Test_Debug_Overrides()
         {
-            var p = new Person() {Id = 1, Name = "Ingo Gambin"};
-            p.Debug();
-            p.Debug("message");
-            p.Debug("message with exception", new NullReferenceException());
+            var person = new Person() {Id = 1, Name = "Ingo Gambin"};
+            this.Log().DebugDump(person);
+            this.Log().Info("message");
+            this.Log().Warn("message with exception", new NullReferenceException());
+            this.Log().ErrorFormat("message {0} {1} {2} {3} {4}", "a", "b", "c", "d", "e");
+            this.Log().FatalFormat(person, "message {0} ({1})", p => p.Name, p => p.Id);
         }
 
-        [TestMethod]
-        public void Test_DebugFormat_Overrides()
-        {
-            var p = new Person() { Id = 1, Name = "Ingo Gambin" };
-            p.DebugFormat("message {0}", "toTom");
-            p.DebugFormat("message {0} ({1})", x => x.Name, x => x.Id);
-        }
     }
 }

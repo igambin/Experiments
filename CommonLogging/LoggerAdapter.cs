@@ -3,7 +3,7 @@ using log4net;
 
 namespace CommonLogging
 {
-    class LoggerAdapter : CommonLogging.ILogger
+    public class LoggerAdapter : CommonLogging.ILogger
     {
         private readonly ILog _log;
 
