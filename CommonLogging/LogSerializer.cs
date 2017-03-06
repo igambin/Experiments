@@ -6,12 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using IG.Extensions;
+using Microsoft.Data.Edm.EdmToClrConversion;
 using Newtonsoft.Json;
 
 namespace CommonLogging
 {
     public class LogSerializer
     {
+        public static Dictionary<Func<object, string>, string> FileEnding = new Dictionary<Func<object, string>, string>
+        {
+            { SerializeXml, "xml" },
+            { SerializeTxt, "txt" },
+            { SerializeJson, "json" }
+        };
+
         public static string SerializeXml<TObject>(TObject objToSerialize)
         {
             string serialized;

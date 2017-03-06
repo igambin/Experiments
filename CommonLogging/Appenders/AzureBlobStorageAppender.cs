@@ -30,27 +30,22 @@ namespace CommonLogging.Appenders
             base.ActivateOptions();
         }
 
-
-
-
         protected override void Append(LoggingEvent loggingEvent)
         {
-            var message = this.RenderLoggingEvent(loggingEvent);
+            var message = RenderLoggingEvent(loggingEvent);
             var folderName = loggingEvent.Properties["folderName"] as string;
+            var requestId = loggingEvent.Properties["requestId"] as string;
+            var dumpType = loggingEvent.Properties["dumpType"] as string;
+
             if (folderName != null)
             {
                 var basefolder = folderName;
-
+                var filename = $"{requestId}_{dumpType}_{loggingEvent.TimeStampUtc}.json";
             }
-            else
-            {
-                // render logging error
-            }
-
-
 
         }
 
+        
 
     }
 }

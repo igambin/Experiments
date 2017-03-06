@@ -14,6 +14,7 @@ namespace ApiApp4._6.Controllers
         public string Get()
         {
             var uri = Request.RequestUri;
+            var props = Request.Properties;
             var result = new
             {
                 Method = Request.Method.Method
@@ -37,6 +38,7 @@ namespace ApiApp4._6.Controllers
                 , ParseQueryString = uri.ParseQueryString()
                 , Headers = Request.Headers
                 , Version = Request.Version
+                , Properties = props.Select(kv => $"{kv.Key}: {kv.Value}").ToArray()
             };
 
             return JsonConvert.SerializeObject(result, Formatting.Indented);

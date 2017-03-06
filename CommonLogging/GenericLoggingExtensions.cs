@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using CommonLogging.Enums;
+using IG.Extensions;
 using log4net;
 using Newtonsoft.Json;
 
@@ -20,24 +22,16 @@ namespace CommonLogging
             return LogManager.GetLogger<TClass>();
         }
 
-        public static ILogger RequestDump<TClass>(this TClass klass, HttpRequestMessage httpRequest, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
+        public static ILogger RequestDump<TClass>(this TClass klass, HttpRequestMessage request, DumpType dumpType, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
             where TClass : class
         {
             ThreadContext.Properties["caller"] = $"[{file}:{line}({member})]";
-            ThreadContext.Properties["folderName"] = httpRequest.ExtractCleanPath();
-            ThreadContext.Properties["requestID"] = httpRequest.ExtractHeaderValue("requestId");
-            ThreadContext.Properties["BlobDump"] = 1;
+            ThreadContext.Properties["folderName"] = request.GetPath();
+            ThreadContext.Properties["requestID"] = request.GetHeaderValue("requestId");
+            ThreadContext.Properties["dumpType"] = dumpType.ToString();
+            ThreadContext.Properties["blobDump"] = 1;
             return LogManager.GetLogger<TClass>();
         }
-
-        public static string ExtractCleanPath(this HttpRequestMessage httpRequest)
-        {
-            var absPath = httpRequest.RequestUri.AbsolutePath;
-            return absPath.Substring(absPath.StartsWith("/api/") ? 5 : 1);
-        }
-
-        public static string ExtractHeaderValue(this HttpRequestMessage httpRequest, string key)
-            => httpRequest.Headers.GetValues(key).FirstOrDefault() ?? string.Empty;
 
         private static Func<object, string> DefaultLogSerializer { get; } = LogSerializer.SerializeJson;
 
@@ -134,6 +128,5 @@ namespace CommonLogging
 
         public static void FatalFormat<TEntity>(this ILogger logger, string format, TEntity entity, params Func<TEntity, object>[] accessorFuncs)
             => logger.FatalFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray());
-
     }
 }

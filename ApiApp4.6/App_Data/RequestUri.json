@@ -1,7 +1,7 @@
 ﻿{
     "Method": "GET",
-    "Uri": "http://localhost:53455/api/values?hallo=1&welt=2",
-    "AbsoluteUri": "http://localhost:53455/api/values?hallo=1&welt=2",
+    "Uri": "http://localhost:53455/api/values",
+    "AbsoluteUri": "http://localhost:53455/api/values",
     "AbsolutePath": "/api/values",
     "Authority": "localhost:53455",
     "DnsSafeHost": "localhost",
@@ -12,13 +12,17 @@
     "IsAbsoluteUri": true,
     "IsFile": false,
     "LocalPath": "/api/values",
-    "OriginalString": "http://localhost:53455/api/values?hallo=1&welt=2",
-    "PathAndQuery": "/api/values?hallo=1&welt=2",
+    "OriginalString": "http://localhost:53455/api/values",
+    "PathAndQuery": "/api/values",
     "Port": 53455,
-    "Query": "?hallo=1&welt=2",
+    "Query": "",
     "Segments": [ "/", "api/", "values" ],
-    "ParseQueryString": [ "hallo", "welt" ],
+    "ParseQueryString": [],
     "Headers": [
+        {
+            "Key": "Cache-Control",
+            "Value": [ "max-age=0" ]
+        },
         {
             "Key": "Connection",
             "Value": [ "keep-alive" ]
@@ -33,7 +37,7 @@
         },
         {
             "Key": "Accept-Language",
-            "Value": [ "de-DE", "de; q=0.8", "en-US; q=0.6", "en; q=0.4" ]
+            "Value": [ "de-DE", "de; q=0.8", "en-GB; q=0.6", "en; q=0.4", "en-US; q=0.2" ]
         },
         {
             "Key": "Host",
@@ -46,6 +50,10 @@
         {
             "Key": "Upgrade-Insecure-Requests",
             "Value": [ "1" ]
+        },
+        {
+            "Key": "DNT",
+            "Value": [ "1" ]
         }
     ],
     "Version": {
@@ -55,5 +63,17 @@
         "Revision": -1,
         "MajorRevision": -1,
         "MinorRevision": -1
-    }
+    },
+    "Properties": [
+        "MS_HttpContext: System.Web.HttpContextWrapper",
+        "MS_RequestContext: System.Web.Http.WebHost.WebHostHttpRequestContext",
+        "MS_RetrieveClientCertificateDelegate: System.Func`2[System.Net.Http.HttpRequestMessage,System.Security.Cryptography.X509Certificates.X509Certificate2]",
+        "MS_IsLocal: Der Wert wurde nicht erstellt.",
+        "MS_IncludeErrorDetail: Der Wert wurde nicht erstellt.",
+        "MS_HttpRouteData: System.Web.Http.WebHost.Routing.HostedHttpRouteData",
+        "MS_SynchronizationContext: System.Web.AspNetSynchronizationContext",
+        "MS_HttpConfiguration: System.Web.Http.HttpConfiguration",
+        "MS_DependencyScope: System.Web.Http.Dependencies.EmptyResolver",
+        "MS_DisposableRequestResources: System.Collections.Generic.List`1[System.IDisposable]", 
+        "MS_HttpActionDescriptor: System.Web.Http.Controllers.ReflectedHttpActionDescriptor" ]
 }

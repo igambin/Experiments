@@ -7,9 +7,11 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+[assembly: log4net.Config.Plugin(typeof(CommonLogging.Plugins.AutoRegisterRenderersPlugin))]
+
 namespace ApiApp4._6
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
         protected void Application_Start()
         {
