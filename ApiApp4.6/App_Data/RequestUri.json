@@ -1,0 +1,59 @@
+﻿{
+    "Method": "GET",
+    "Uri": "http://localhost:53455/api/values?hallo=1&welt=2",
+    "AbsoluteUri": "http://localhost:53455/api/values?hallo=1&welt=2",
+    "AbsolutePath": "/api/values",
+    "Authority": "localhost:53455",
+    "DnsSafeHost": "localhost",
+    "Fragment": "",
+    "Host": "localhost",
+    "HostNameType": "Dns",
+    "IdnHost": "localhost",
+    "IsAbsoluteUri": true,
+    "IsFile": false,
+    "LocalPath": "/api/values",
+    "OriginalString": "http://localhost:53455/api/values?hallo=1&welt=2",
+    "PathAndQuery": "/api/values?hallo=1&welt=2",
+    "Port": 53455,
+    "Query": "?hallo=1&welt=2",
+    "Segments": [ "/", "api/", "values" ],
+    "ParseQueryString": [ "hallo", "welt" ],
+    "Headers": [
+        {
+            "Key": "Connection",
+            "Value": [ "keep-alive" ]
+        },
+        {
+            "Key": "Accept",
+            "Value": [ "text/html", "application/xhtml+xml", "application/xml; q=0.9", "image/webp", "*/*; q=0.8" ]
+        },
+        {
+            "Key": "Accept-Encoding",
+            "Value": [ "gzip", "deflate", "sdch", "br" ]
+        },
+        {
+            "Key": "Accept-Language",
+            "Value": [ "de-DE", "de; q=0.8", "en-US; q=0.6", "en; q=0.4" ]
+        },
+        {
+            "Key": "Host",
+            "Value": [ "localhost:53455" ]
+        },
+        {
+            "Key": "User-Agent",
+            "Value": [ "Mozilla/5.0", "(Windows NT 10.0; Win64; x64)", "AppleWebKit/537.36", "(KHTML, like Gecko)", "Chrome/56.0.2924.87", "Safari/537.36" ]
+        },
+        {
+            "Key": "Upgrade-Insecure-Requests",
+            "Value": [ "1" ]
+        }
+    ],
+    "Version": {
+        "Major": 1,
+        "Minor": 1,
+        "Build": -1,
+        "Revision": -1,
+        "MajorRevision": -1,
+        "MinorRevision": -1
+    }
+}

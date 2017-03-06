@@ -68,8 +68,8 @@ namespace XPerimentsTest.CommonLoggingTests
             this.Log().DebugDump(person);
             this.Log().Info("message");
             this.Log().Warn("message with exception", new NullReferenceException());
-            this.Log().ErrorFormat("message {0} {1} {2} {3} {4}", "a", "b", "c", "d", "e");
-            this.Log().FatalFormat(person, "message {0} ({1})", p => p.Name, p => p.Id);
+            this.Log().ErrorFormat("{0} {1} {2} {3} {4}", "a", "b", "c", "d", "e");
+            this.Log().FatalFormat("Hello {0} ({1})", person, p => p.Name, p => p.Id);
         }
 
     }
