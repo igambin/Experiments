@@ -4,10 +4,12 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using IG.Extensions;
 using log4net.Appender;
 using log4net.Core;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
+using Newtonsoft.Json;
 
 namespace CommonLogging.Appenders
 {
@@ -33,19 +35,34 @@ namespace CommonLogging.Appenders
         protected override void Append(LoggingEvent loggingEvent)
         {
             var message = RenderLoggingEvent(loggingEvent);
-            var folderName = loggingEvent.Properties["folderName"] as string;
-            var requestId = loggingEvent.Properties["requestId"] as string;
-            var dumpType = loggingEvent.Properties["dumpType"] as string;
-
-            if (folderName != null)
+            var request = loggingEvent.Properties["request"] as HttpRequestMessage;
+            if (request != null)
             {
-                var basefolder = folderName;
-                var filename = $"{requestId}_{dumpType}_{loggingEvent.TimeStampUtc}.json";
-            }
+                var headers = JsonConvert.SerializeObject(request.Headers, Formatting.Indented);
+                var folderName = request.GetPath();
+                var requestId = request.GetHeaderValue("requestId");
+                var dumpType = loggingEvent.Properties["dumpType"] as string ?? "NotSpecified";
+                var filename = folderName;
+                if (folderName != null)
+                {
+                    filename = $"{filename}{_dumpdir[dumpType]}{requestId}_{dumpType}_{loggingEvent.TimeStampUtc}.json";
+                    message = $"Headers:{Environment.NewLine}{headers}{Environment.NewLine}{Environment.NewLine}Payload:{Environment.NewLine}{message}";
 
+                    var blockref = _blobContainer.GetBlockBlobReference(filename);
+                    Task.Run( async () => await blockref.UploadTextAsync(message));
+                }
+            }
         }
 
-        
+        private readonly Dictionary<string, string> _dumpdir = new Dictionary<string, string>
+        {
+            {"NotSpecified", "unspecified" },
+            {"Inbound", "in" },
+            {"Cim", "payloads"},
+            {"TransformEnrich", "payloads"},
+            {"Outbound", "payloads"},
+            {"Error", "error" },
+        };
 
     }
 }

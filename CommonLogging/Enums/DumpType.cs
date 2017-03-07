@@ -8,9 +8,11 @@ namespace CommonLogging.Enums
 {
     public enum DumpType
     {
+        NotSpecified,
         Inbound,
-        Outbound,
         Cim,
+        TransformEnrich,
+        Outbound,
         Error,
     }
 }

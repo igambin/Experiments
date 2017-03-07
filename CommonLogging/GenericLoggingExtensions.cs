@@ -26,8 +26,7 @@ namespace CommonLogging
             where TClass : class
         {
             ThreadContext.Properties["caller"] = $"[{file}:{line}({member})]";
-            ThreadContext.Properties["folderName"] = request.GetPath();
-            ThreadContext.Properties["requestID"] = request.GetHeaderValue("requestId");
+            ThreadContext.Properties["request"] = request;
             ThreadContext.Properties["dumpType"] = dumpType.ToString();
             ThreadContext.Properties["blobDump"] = 1;
             return LogManager.GetLogger<TClass>();
