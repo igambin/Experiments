@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-[assembly: log4net.Config.Plugin(typeof(CommonLogging.Plugins.AutoRegisterRenderersPlugin))]
+[assembly: log4net.Config.Plugin(typeof(IGrouping.CommonLogging.Plugins.AutoRegisterRenderersPlugin))]
 
 namespace ApiApp4._6
 {

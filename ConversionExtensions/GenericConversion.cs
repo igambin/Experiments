@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 
 namespace IG.Extensions
 {
-    public static class GenericConversion
-    { 
-        public static T GetTOrDefault<T>(this string input) where T : IConvertible
+    public static class GenericConversions
+    {
+        public static T GetTOrDefault<T>(this string input, [Optional] T defaultValue) where T : IConvertible
         {
             T x;
             try
@@ -14,39 +15,30 @@ namespace IG.Extensions
             }
             catch (Exception)
             {
-                return default(T);
+                if (defaultValue == null)
+                {
+                    defaultValue = default(T);
+                }
+                x = defaultValue;
             }
             return x;
         }
 
-        public static object GetTOrNull<T>(this string input) where T : IConvertible
+        public static T GetTOrThrowException<T>(this string input) where T : IConvertible
         {
             T x;
             try
             {
                 x = (T)Convert.ChangeType(input, typeof(T));
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-            return x;
-        }
-
-        public static object GetTOrThrowException<T>(this string input) where T : IConvertible
-        {
-            T x;
-            try
-            {
-                x = (T) Convert.ChangeType(input, typeof (T));
             }
             catch (Exception ex)
             {
-                throw new ConversionException($"Conversion of value '{input}' to type '{typeof(T)}' caused an Exception of type '{ex.GetType()}'.", ex);
+                throw new ConversionException(input, typeof(T), ex);
             }
             return x;
         }
 
+        [Serializable]
         public class ConversionException : Exception
         {
             public ConversionException()
@@ -62,6 +54,13 @@ namespace IG.Extensions
             }
 
             protected ConversionException(SerializationInfo info, StreamingContext context) : base(info, context)
+            {
+            }
+
+            public ConversionException(string toConvert, Type conversionTarget, Exception innerException) :
+                base(
+                    $"Conversion of value '{toConvert}' to type '{conversionTarget}' caused an Exception of type '{innerException.GetType()}'.",
+                    innerException)
             {
             }
         }

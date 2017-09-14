@@ -2,9 +2,11 @@
 using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
-using CommonLogging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using XPerimentsTest.CommonLoggingTests.Environment;
+using IG.CommonLogging;
+using IG.CommonLogging.LogModels;
+using IG.CommonLogging.Serializers;
 
 namespace XPerimentsTest.CommonLoggingTests
 {
@@ -64,12 +66,18 @@ namespace XPerimentsTest.CommonLoggingTests
         [TestMethod]
         public void Test_Debug_Overrides()
         {
-            var person = new Person() {Id = 1, Name = "Ingo Gambin"};
-            this.Log().DebugDump(person);
-            this.Log().Info("message");
-            this.Log().Warn("message with exception", new NullReferenceException());
-            this.Log().ErrorFormat("{0} {1} {2} {3} {4}", "a", "b", "c", "d", "e");
-            this.Log().FatalFormat("Hello {0} ({1})", person, p => p.Name, p => p.Id);
+            var person = new Person {Id = 1, Name = "Ingo Gambin"};
+
+            var logItem = new SerializingLogItem<Person>(person);
+            this.Logger().DebugDump(logItem);
+
+            var errlogItem = new SerializingLogItem<Person>(person, SerializerType.Xml, new Exception($"The name is not valid: {person.Name}"));
+            this.Logger().ErrorDump(logItem);
+
+            this.Logger().Info("message");
+            this.Logger().Warn("message with exception", new NullReferenceException());
+            this.Logger().ErrorFormat("{0} {1} {2} {3} {4}", "a", "b", "c", "d", "e");
+            this.Logger().FatalFormat("Hello {0} ({1})", person, p => p.Name, p => p.Id);
         }
 
     }

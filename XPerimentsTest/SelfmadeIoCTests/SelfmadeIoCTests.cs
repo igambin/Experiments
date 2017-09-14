@@ -3,6 +3,8 @@ using XPerimentsTest.SelfmadeIoCTests.Environment;
 using SelfmadeIoC;
 using NUnit.Framework;
 using System.IO;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Assert = NUnit.Framework.Assert;
 
 namespace XPerimentsTest.SelfmadeIoCTests
 {
