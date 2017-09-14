@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace SelfmadeIoC
 {
@@ -85,24 +84,17 @@ namespace SelfmadeIoC
 
         private object TryToFindAndResolveTypeAnyway(Type type, string name)
         {
-            ConstructorInfo cinfo;
-            if (name != null)
-            {
-                cinfo = type.GetConstructors().FindByName(name);
-            }
-            else
-            {
-                cinfo = type.GetConstructors().FirstOrDefault();
-            }
+            var cinfo = name != null    ? type.GetConstructors().FindByName(name) 
+                                        : type.GetConstructors().FirstOrDefault();
 
-            ParameterInfo[] args = cinfo.GetParameters();
+            var args = cinfo?.GetParameters();
 
-            if (args.Count() == 0)
+            if (!args?.Any()??false)
             {
                 return Activator.CreateInstance(type);
             }
 
-            return cinfo.Invoke(args.Select(x => ResolveType(x.ParameterType)).ToArray());  
+            return cinfo?.Invoke(args.Select(x => ResolveType(x.ParameterType)).ToArray());  
             
         }
         

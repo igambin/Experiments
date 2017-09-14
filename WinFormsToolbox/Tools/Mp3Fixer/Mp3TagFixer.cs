@@ -13,7 +13,7 @@ using WinFormsToolbox.Tools.Mp3Fixer.Forms;
 namespace WinFormsToolbox.Tools.Mp3Fixer
 {
     [Export(typeof(IWinFormsTool))]
-    [ExportMetadata("ToolName", "Mp3 Tag-Fixer")]
+    [ExportMetadata("ToolName", "MP3 Regex Editor")]
     [ExportMetadata("ToolCategory", Categories.Mp3Tool)]
     public class Mp3TagFixer : IWinFormsTool
     {
