@@ -5,8 +5,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using IG.Extensions;
+using IG.XmlTools;
 using Newtonsoft.Json;
-using XmlTools;
 
 namespace IG.CommonLogging.Appenders.MailRecipientManagement
 {
@@ -35,8 +35,7 @@ namespace IG.CommonLogging.Appenders.MailRecipientManagement
             }
 
             var xml = File.ReadAllText(configFileName);
-            var recipientGroups = XmlHelper.Deserialize<MailRecipientGroups>(xml);
-            Console.WriteLine(JsonConvert.SerializeObject(recipientGroups));
+            var recipientGroups = Serialization.Deserialize<MailRecipientGroups>(xml);
 
             return recipientGroups.Recipients.Where(x => x.Name.Equals(recipientsEnum.ToString(), StringComparison.InvariantCultureIgnoreCase)).ToList();
         }
@@ -52,7 +51,7 @@ namespace IG.CommonLogging.Appenders.MailRecipientManagement
                 },
             };
 
-            var example = XmlHelper.Serialize(recipients);
+            var example = Serialization.Serialize(recipients);
 
             try
             {

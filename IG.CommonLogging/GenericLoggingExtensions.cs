@@ -11,105 +11,64 @@ namespace IG.CommonLogging
 {
     public static class GenericLoggingExtensions
     {
-        public static ILogger Logger<TClass>(this TClass klass, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
-            where TClass : class
-        {
-            ThreadContext.Properties["caller"] = $"[{file}:{line}({member})]";
-            if (Settings.Logging.EvaluateStackTraces)
-            {
-                ThreadContext.Properties["stacktrace"] = Environment.StackTrace;
-            }
-            return LogManager.GetLogger<TClass>();
-        }
+        public static ILogger Logger<TClass>(this TClass klass, Recipients recipients = Recipients.Default, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
+            where TClass : class => CreateLogger(LogManager.GetLogger<TClass>(), recipients, file, member, line);
 
-        public static ILogger FileLogger<TClass>(this TClass klass, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
-            where TClass : class
-        {
-            ThreadContext.Properties["caller"] = $"[{file}:{line}({member})]";
-            if (Settings.Logging.EvaluateStackTraces)
-            {
-                ThreadContext.Properties["stacktrace"] = Environment.StackTrace;
-            }
-            return LogManager.GetLogger("FileLogger");
-        }
+        public static ILogger FileLogger<TClass>(this TClass klass, Recipients recipients = Recipients.Default, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
+            where TClass : class => CreateLogger(LogManager.GetLogger("FileLogger"), recipients, file, member, line);
 
         public static ILogger MailLogger<TClass>(this TClass klass, Recipients recipients = Recipients.Default, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
-            where TClass : class
+            where TClass : class => CreateLogger(LogManager.GetLogger("MailLogger"), recipients, file, member, line, true);
+
+        private static ILogger CreateLogger(ILogger logger, Recipients recipients, string file, string member, int line, bool sendMails = false)
         {
             ThreadContext.Properties["caller"] = $"[{file}:{line}({member})]";
+            ThreadContext.Properties["recipients"] = recipients;
+            if (sendMails)
+            {
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            }
             if (Settings.Logging.EvaluateStackTraces)
             {
                 ThreadContext.Properties["stacktrace"] = Environment.StackTrace;
             }
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
-            ThreadContext.Properties["recipients"] = recipients;
+            return logger;
+        }
 
-            return LogManager.GetLogger("MailLogger");
+        private static void ProcessIfEnabled(bool isEnabled, Action action)
+        {
+            if (isEnabled) action();
         }
 
         public static void DebugDump<TEntity>(this ILogger logger, ISerializingLogItem<TEntity> logItem, Exception ex = null, params string[] errors)
-        {
-            if (logger.IsDebugEnabled)
-            {
-                PrepareMessageAndLogToBlobStorage<TEntity>(logItem, ex, errors, logger.Debug);
-            }
-        }
+            => ProcessIfEnabled(logger.IsDebugEnabled, () => PrepareMessageAndLogToBlobStorage(logItem, ex, errors, logger.Debug));
 
         public static void DebugFormat<TEntity>(this ILogger logger, string format, TEntity entity, params Func<TEntity, object>[] accessorFuncs)
-        {
-            if (logger.IsDebugEnabled)
-            {
-                logger.DebugFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray());
-            }
-        }
-
+            => ProcessIfEnabled(logger.IsDebugEnabled, () => logger.DebugFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray()));
 
         public static void InfoDump<TEntity>(this ILogger logger, ISerializingLogItem<TEntity> logItem, Exception ex = null, params string[] errors)
-        {
-            if (logger.IsInfoEnabled)
-            {
-                PrepareMessageAndLogToBlobStorage<TEntity>(logItem, ex, errors, logger.Info);
-            }
-        }
+            => ProcessIfEnabled(logger.IsInfoEnabled, () => PrepareMessageAndLogToBlobStorage(logItem, ex, errors, logger.Info));
 
         public static void InfoFormat<TEntity>(this ILogger logger, string format, TEntity entity, params Func<TEntity, object>[] accessorFuncs)
-            => logger.InfoFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray());
-
+            => ProcessIfEnabled(logger.IsInfoEnabled, () => logger.InfoFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray()));
 
         public static void WarnDump<TEntity>(this ILogger logger, ISerializingLogItem<TEntity> logItem, Exception ex = null, params string[] errors)
-        {
-            if (logger.IsWarnEnabled)
-            {
-                PrepareMessageAndLogToBlobStorage<TEntity>(logItem, ex, errors, logger.Warn);
-            }
-        }
+            => ProcessIfEnabled(logger.IsWarnEnabled, () => PrepareMessageAndLogToBlobStorage(logItem, ex, errors, logger.Warn));
 
         public static void WarnFormat<TEntity>(this ILogger logger, string format, TEntity entity, params Func<TEntity, object>[] accessorFuncs)
-            => logger.WarnFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray());
-
+            => ProcessIfEnabled(logger.IsWarnEnabled, () => logger.WarnFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray()));
 
         public static void ErrorDump<TEntity>(this ILogger logger, ISerializingLogItem<TEntity> logItem, Exception ex = null, params string[] errors)
-        {
-            if (logger.IsErrorEnabled)
-            {
-                PrepareMessageAndLogToBlobStorage<TEntity>(logItem, ex, errors, logger.Error);
-            }
-        }
+            => ProcessIfEnabled(logger.IsErrorEnabled, () => PrepareMessageAndLogToBlobStorage(logItem, ex, errors, logger.Error));
 
         public static void ErrorFormat<TEntity>(this ILogger logger, string format, TEntity entity, params Func<TEntity, object>[] accessorFuncs)
-            => logger.ErrorFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray());
-
+            => ProcessIfEnabled(logger.IsErrorEnabled, () => logger.ErrorFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray()));
 
         public static void FatalDump<TEntity>(this ILogger logger, ISerializingLogItem<TEntity> logItem, Exception ex = null, params string[] errors)
-        {
-            if (logger.IsFatalEnabled)
-            {
-                PrepareMessageAndLogToBlobStorage<TEntity>(logItem, ex, errors, logger.Fatal);
-            }
-        }
+            => ProcessIfEnabled(logger.IsFatalEnabled, () => PrepareMessageAndLogToBlobStorage(logItem, ex, errors, logger.Fatal));
 
         public static void FatalFormat<TEntity>(this ILogger logger, string format, TEntity entity, params Func<TEntity, object>[] accessorFuncs)
-            => logger.FatalFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray());
+            => ProcessIfEnabled(logger.IsFatalEnabled, () => logger.FatalFormat($"{typeof(TEntity).Name}::({format})", accessorFuncs.Select(x => x(entity)).ToArray()));
 
 
         private static void PrepareMessageAndLogToBlobStorage<TEntity>(ISerializingLogItem<TEntity> logItem, Exception ex,

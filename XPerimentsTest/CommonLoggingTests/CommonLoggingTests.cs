@@ -67,7 +67,6 @@ namespace XPerimentsTest.CommonLoggingTests
         [TestMethod]
         public void Test_Debug_Overrides()
         {
-            Debugger.Break();
             var person = new Person {Id = 1, Name = "Ingo Gambin"};
 
             var logItem = new SerializingLogItem<Person>(person);

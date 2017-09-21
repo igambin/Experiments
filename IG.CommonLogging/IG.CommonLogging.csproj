@@ -64,6 +64,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Spatial, Version=5.8.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.8.3\lib\net40\System.Spatial.dll</HintPath>
@@ -99,6 +100,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serializers\IDataSerializer.cs" />
     <Compile Include="Serializers\JsonDataSerializer.cs" />
+    <Compile Include="Serializers\Log4NetConfig.cs" />
     <Compile Include="Serializers\SerializerType.cs" />
     <Compile Include="Serializers\TextDataSerializer.cs" />
     <Compile Include="Serializers\XmlDataSerializer.cs" />
@@ -128,9 +130,9 @@
       <Project>{EBDDCA95-AE85-40B0-BAFB-EA1850C16D73}</Project>
       <Name>IG.SettingsReaders</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XmlTools\IG.XmlAssistant.csproj">
+    <ProjectReference Include="..\XmlTools\IG.XmlTools.csproj">
       <Project>{42D3C8D0-56E9-418F-9274-689209B4F169}</Project>
-      <Name>IG.XmlAssistant</Name>
+      <Name>IG.XmlTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

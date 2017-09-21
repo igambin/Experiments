@@ -73,9 +73,9 @@
       <Project>{d6a36ccf-680b-4510-bf36-ec56ca8f244c}</Project>
       <Name>IG.ResourceAssistant</Name>
     </ProjectReference>
-    <ProjectReference Include="..\XmlTools\IG.XmlAssistant.csproj">
+    <ProjectReference Include="..\XmlTools\IG.XmlTools.csproj">
       <Project>{42d3c8d0-56e9-418f-9274-689209b4f169}</Project>
-      <Name>IG.XmlAssistant</Name>
+      <Name>IG.XmlTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
