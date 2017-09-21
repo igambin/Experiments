@@ -25,45 +25,11 @@ namespace IG.CommonLogging.Serializers
             public string Value { get; set; }
         }
 
-        [XmlRoot(ElementName = "conversionPattern")]
-        public class ConversionPattern
-        {
-        }
-
-        [XmlRoot(ElementName = "layout")]
-        public class Layout
-        {
-        }
-
-        [XmlRoot(ElementName = "appender")]
-        public class Appender
-        {
-        }
-
-
-        [XmlRoot(ElementName = "root")]
-        public class Root
-        {
-        }
-
-        [XmlRoot(ElementName = "logger")]
-        public class Logger
-        {
-        }
-
         [XmlRoot(ElementName = "log4net")]
         public class Log4NetConfig
         {
             [XmlElement(ElementName = "param")]
             public List<Param> Param { get; set; }
-            [XmlIgnore, XmlElement(ElementName = "appender")]
-            public List<Appender> Appender { get; set; }
-            [XmlIgnore, XmlElement(ElementName = "root")]
-            public Root Root { get; set; }
-            [XmlIgnore, XmlElement(ElementName = "logger")]
-            public List<Logger> Logger { get; set; }
-            [XmlIgnore, XmlAttribute(AttributeName = "debug")]
-            public string Debug { get; set; }
         }
     }
 }

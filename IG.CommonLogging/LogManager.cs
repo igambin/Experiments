@@ -7,6 +7,8 @@ namespace IG.CommonLogging
     public class LogManager : ILogManager
     {
         private static ILogManager Instance { get; }
+        public MailNotificationLevel MailNotificationLevel { get; set; }
+        public bool AlwaysNotifyByMailOnException { get; set; }
 
         static LogManager()
         {
