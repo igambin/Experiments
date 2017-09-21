@@ -1,15 +1,42 @@
 using System;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using IG.CommonLogging.Appenders.MailRecipientManagement;
+using IG.CommonLogging.Serializers.Xml2CSharp;
+using IG.Extensions;
+using IG.XmlTools;
 using log4net;
+using Newtonsoft.Json;
 
 namespace IG.CommonLogging
 {
+
+    public enum MailNotificationLevel
+    {
+        Debug = 0,
+        Info = 1,
+        Warn = 2,
+        Error = 3,
+        Fatal = 4,
+        None = 5
+    }
+
     public class LoggerAdapter : ILogger
     {
         private readonly ILog _log;
+        public MailNotificationLevel MailNotificationLevel { get; }
+        public bool AlwaysNotifyByMailOnException { get; }
 
         internal LoggerAdapter(ILog log)
         {
+            var configFileName = Path.Combine(typeof(LoggerAdapter).AssemblyDirectory(), "log4net.config");
+            var xml = File.ReadAllText(configFileName);
+            var log4NetParams = Serialization.Deserialize<Log4NetConfig>(xml).Param;
+            Console.WriteLine("params read from Log4NetConfig: " + string.Join(" ", log4NetParams.Select(x => $@"{{{x.Name}=>{x.Value}}}")));
             _log = log;
+            MailNotificationLevel = log4NetParams.FirstOrDefault(x => x.Name == nameof(MailNotificationLevel))?.Value.GetTOrDefault(MailNotificationLevel.Error) ?? MailNotificationLevel.Error;
+            AlwaysNotifyByMailOnException = log4NetParams.FirstOrDefault(x => x.Name == nameof(AlwaysNotifyByMailOnException))?.Value.GetTOrDefault(true) ?? true;
         }
 
         public bool IsDebugEnabled => _log.IsDebugEnabled;
@@ -24,43 +51,59 @@ namespace IG.CommonLogging
 
         public void Debug(object message)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Debug)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Debug(message);
         }
 
         public void Debug(object message, Exception exception)
         {
-            if(exception != null)
+            if ((MailNotificationLevel <= MailNotificationLevel.Debug)
+               || (AlwaysNotifyByMailOnException && exception != null)
+               )
                 ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Debug(message, exception);
         }
 
         public void DebugFormat(string format, params object[] args)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Debug)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.DebugFormat(format, args);
         }
 
         public void DebugFormat(string format, object arg0)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Debug)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.DebugFormat(format, arg0);
         }
 
         public void DebugFormat(string format, object arg0, object arg1)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Debug)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.DebugFormat(format, arg0, arg1);
         }
 
         public void DebugFormat(string format, object arg0, object arg1, object arg2)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Debug)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.DebugFormat(format, arg0, arg1, arg2);
         }
 
         public void DebugFormat(IFormatProvider provider, string format, params object[] args)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Debug)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.DebugFormat(provider, format, args);
         }
 
         public void Info(object message)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Info)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Info(message);
         }
 
@@ -73,157 +116,190 @@ namespace IG.CommonLogging
 
         public void InfoFormat(string format, params object[] args)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Info)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.InfoFormat(format, args);
         }
 
         public void InfoFormat(string format, object arg0)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Info)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.InfoFormat(format, arg0);
         }
 
         public void InfoFormat(string format, object arg0, object arg1)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Info)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.InfoFormat(format, arg0, arg1);
         }
 
         public void InfoFormat(string format, object arg0, object arg1, object arg2)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Info)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.InfoFormat(format, arg0, arg1, arg2);
         }
 
         public void InfoFormat(IFormatProvider provider, string format, params object[] args)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Info)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.InfoFormat(provider, format, args);
         }
 
         public void Warn(object message)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Warn)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Warn(message);
         }
 
         public void Warn(object message, Exception exception)
         {
-            if (exception != null)
+            if ((MailNotificationLevel <= MailNotificationLevel.Warn)
+                || (AlwaysNotifyByMailOnException && exception != null)
+            )
                 ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Warn(message, exception);
         }
 
         public void WarnFormat(string format, params object[] args)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Warn)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.WarnFormat(format, args);
         }
 
         public void WarnFormat(string format, object arg0)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Warn)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.WarnFormat(format, arg0);
         }
 
         public void WarnFormat(string format, object arg0, object arg1)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Warn)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.WarnFormat(format, arg0, arg1);
         }
 
         public void WarnFormat(string format, object arg0, object arg1, object arg2)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Warn)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.WarnFormat(format, arg0, arg1, arg2);
         }
 
         public void WarnFormat(IFormatProvider provider, string format, params object[] args)
         {
+            if (MailNotificationLevel <= MailNotificationLevel.Warn)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.WarnFormat(provider, format, args);
         }
 
         public void Error(object message)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Error)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Error(message);
         }
 
         public void Error(object message, Exception exception)
         {
-            if (exception != null)
+            if ((MailNotificationLevel <= MailNotificationLevel.Error)
+                || (AlwaysNotifyByMailOnException && exception != null)
+            )
                 ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Error(message, exception);
         }
 
         public void ErrorFormat(string format, params object[] args)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Error)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.ErrorFormat(format, args);
         }
 
         public void ErrorFormat(string format, object arg0)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Error)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.ErrorFormat(format, arg0);
         }
 
         public void ErrorFormat(string format, object arg0, object arg1)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Error)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.ErrorFormat(format, arg0, arg1);
         }
 
         public void ErrorFormat(string format, object arg0, object arg1, object arg2)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Error)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.ErrorFormat(format, arg0, arg1, arg2);
         }
 
         public void ErrorFormat(IFormatProvider provider, string format, params object[] args)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Error)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.ErrorFormat(provider, format, args);
         }
 
         public void Fatal(object message)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Fatal)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Fatal(message);
         }
 
         public void Fatal(object message, Exception exception)
         {
-            if (exception != null)
+            if ((MailNotificationLevel <= MailNotificationLevel.Fatal)
+                || (AlwaysNotifyByMailOnException && exception != null)
+            )
                 ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.Fatal(message, exception);
         }
 
         public void FatalFormat(string format, params object[] args)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Fatal)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.FatalFormat(format, args);
         }
 
         public void FatalFormat(string format, object arg0)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Fatal)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.FatalFormat(format, arg0);
         }
 
         public void FatalFormat(string format, object arg0, object arg1)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Fatal)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.FatalFormat(format, arg0, arg1);
         }
 
         public void FatalFormat(string format, object arg0, object arg1, object arg2)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            if (MailNotificationLevel <= MailNotificationLevel.Fatal)
+                ThreadContext.Properties["notifyEMailRecipients"] = "1";
             _log.FatalFormat(format, arg0, arg1, arg2);
         }
 
         public void FatalFormat(IFormatProvider provider, string format, params object[] args)
         {
-            ThreadContext.Properties["notifyEMailRecipients"] = "1";
-            _log.FatalFormat(provider, format, args);
-        }
-
-        public void Blob(object message, Exception exception)
-        {
-            if(exception != null)
+            if (MailNotificationLevel <= MailNotificationLevel.Fatal)
                 ThreadContext.Properties["notifyEMailRecipients"] = "1";
-            _log.Fatal(message, exception);
+            _log.FatalFormat(provider, format, args);
         }
 
     }

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using XmlTools;
+using IG.XmlTools;
 
 namespace IG.Repository
 {
@@ -24,7 +24,7 @@ namespace IG.Repository
 
             var input = File.ReadAllText(path, Encoding.UTF8);
 
-            var data = XmlHelper.Deserialize<List<T>>(input);
+            var data = Serialization.Deserialize<List<T>>(input);
 
             return data;
         }

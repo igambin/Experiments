@@ -2,6 +2,7 @@
 using System.Text;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using XPerimentsTest.CommonLoggingTests.Environment;
 using IG.CommonLogging;
@@ -72,12 +73,13 @@ namespace XPerimentsTest.CommonLoggingTests
             this.Logger().DebugDump(logItem);
 
             var errlogItem = new SerializingLogItem<Person>(person, SerializerType.Xml, new Exception($"The name is not valid: {person.Name}"));
-            this.Logger().ErrorDump(logItem);
+            this.Logger().ErrorDump(errlogItem);
 
             this.Logger().Info("message");
             this.Logger().Warn("message with exception", new NullReferenceException());
             this.Logger().ErrorFormat("{0} {1} {2} {3} {4}", "a", "b", "c", "d", "e");
             this.Logger().FatalFormat("Hello {0} ({1})", person, p => p.Name, p => p.Id);
+            this.MailLogger().Debug("message");
         }
 
     }

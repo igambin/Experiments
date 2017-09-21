@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using IG.CommonLogging.Appenders.MailRecipientManagement;
 using IG.CommonLogging.LogModels;
 using IG.Extensions;
 using IG.SettingsReaders;
@@ -17,26 +18,26 @@ namespace IG.CommonLogging.Appenders
 {
     public partial class MailNotificationAppender : AppenderSkeleton
     {
-        public int DefaultSmtpPort { get; set; }
+        public int DefaultSmtpPort { get; } = 25;
         public int MaxSubjectLength { get; set; }
         public int MaxBodyLengthForLogging { get; set; }
         public string SmtpHost { get; set; }
         public string SmtpPort { get; set; }
         public string SmtpLogin { get; set; }
         public string SmtpPassword { get; set; }
-        public string EmailRecipients { get; set; }
-        public string EmailSubjectPrefix { get; set; }
-        public string SenderAddress { get; set; }
+        public string SmtpSender { get; set; }
 
         protected override void Append(LoggingEvent loggingEvent)
         {
             var logItem = ThreadContext.Properties["logItem"] as LogItem;
 
+            var recipientGroup = ThreadContext.Properties["recipients"] as Recipients? ?? Recipients.Default;
+
             var subject = EvaluateSubject(logItem, RenderLoggingEvent(loggingEvent));
 
             subject = subject.Length > MaxSubjectLength ? subject.Substring(0, MaxSubjectLength - 3) + "..." : subject;
 
-            var recipients = CreateRecipients();
+            var recipients = CreateRecipients(recipientGroup);
 
             string body = GetBody(logItem, loggingEvent);
 
@@ -73,30 +74,20 @@ namespace IG.CommonLogging.Appenders
             public string Subject { get; set; }
         }
 
-        public List<MailRecipient> CreateRecipients()
+        private List<MailRecipient> CreateRecipients(Recipients recipientGroup)
         {
-            var recipients = new List<MailRecipientGroup>
-            {
-                new MailRecipientGroup
-                {
-                    Recipients = string.Join(";", EmailRecipients),
-                    SubjectPrefix = EmailSubjectPrefix,
-                    Sender = SenderAddress
-                }
-            };
+            var recipients = recipientGroup.GetRecipients();
 
-            var addresses =
-                recipients
-                    .SelectMany(
+            var addresses = recipients.SelectMany(
                         x => x.RecipientList
                             .Where(r => !string.IsNullOrWhiteSpace(r))
-                            .Select(y => new MailRecipient { ToAddr = y, Subject = x.PrefixSubject(EmailSubjectPrefix, MaxSubjectLength), FromAddr = x.Sender }))
+                            .Select(y => new MailRecipient { ToAddr = y, Subject = x.PrefixSubject("", MaxSubjectLength), FromAddr = SmtpSender }))
                     .ToList();
 
             return addresses.Distinct(new MailRecipientEqualityComparer()).ToList();
         }
 
-        public void SendMail(string subject, string body, List<MailRecipient> recipients)
+        private void SendMail(string subject, string body, List<MailRecipient> recipients)
         {
             var time = DateTime.Now.Ticks;
             var resultCollection = new ConcurrentBag<string>();
