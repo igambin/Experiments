@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Runtime.CompilerServices;
+using IG.CommonLogging.Appenders.MailRecipientManagement;
 using IG.CommonLogging.LogModels;
-using IG.CommonLogging.Serializers;
 using IG.SettingsReaders;
 using log4net;
 
@@ -34,7 +33,7 @@ namespace IG.CommonLogging
             return LogManager.GetLogger("FileLogger");
         }
 
-        public static ILogger MailLogger<TClass>(this TClass klass, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
+        public static ILogger MailLogger<TClass>(this TClass klass, Recipients recipients = Recipients.Default, [CallerFilePath] string file = "", [CallerMemberName] string member = "", [CallerLineNumber] int line = 0)
             where TClass : class
         {
             ThreadContext.Properties["caller"] = $"[{file}:{line}({member})]";
@@ -43,8 +42,9 @@ namespace IG.CommonLogging
                 ThreadContext.Properties["stacktrace"] = Environment.StackTrace;
             }
             ThreadContext.Properties["notifyEMailRecipients"] = "1";
+            ThreadContext.Properties["recipients"] = recipients;
 
-            return LogManager.GetLogger("MailNotifier");
+            return LogManager.GetLogger("MailLogger");
         }
 
         public static void DebugDump<TEntity>(this ILogger logger, ISerializingLogItem<TEntity> logItem, Exception ex = null, params string[] errors)
