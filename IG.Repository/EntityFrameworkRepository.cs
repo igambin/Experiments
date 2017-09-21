@@ -6,7 +6,8 @@ using System.Linq.Expressions;
 
 namespace IG.Repository
 {
-    public class EntityFrameworkRepository : IRepository, IDisposable
+    public class EntityFrameworkRepository<TEntity> : IRepository<TEntity>, IDisposable
+        where TEntity : class
     {
         protected Type ContextType;
         protected string ConnectionString;
@@ -29,50 +30,50 @@ namespace IG.Repository
             return null;
         }
 
-        public IEnumerable<T> GetRecords<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public IEnumerable<TEntity> GetRecords(Expression<Func<TEntity, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return Queryable.Where(Context.Set<T>(), predicate);
+                return Context.Set<TEntity>().Where(predicate);
             }
-            return Context.Set<T>();
+            return Context.Set<TEntity>();
         }
 
-        public T GetFirstOrDefault<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return Queryable.FirstOrDefault(Context.Set<T>(), predicate);
+                return Context.Set<TEntity>().FirstOrDefault(predicate);
             }
-            return Queryable.FirstOrDefault<T>(Context.Set<T>());
+            return Context.Set<TEntity>().FirstOrDefault();
         }
 
 
-        public IQueryable<T> GetQuery<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return Queryable.Where(Context.Set<T>(), predicate);
+                return Context.Set<TEntity>().Where(predicate);
             }
-            return Context.Set<T>();
+            return Context.Set<TEntity>();
         }
 
-        public int Count<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public int Count(Expression<Func<TEntity, bool>> predicate = null) 
         {
             if (predicate != null)
             {
-                return Queryable.Count(Context.Set<T>(), predicate);
+                return Context.Set<TEntity>().Count(predicate);
             }
-            return Queryable.Count<T>(Context.Set<T>());
+            return Context.Set<TEntity>().Count();
         }
 
-        public bool Any<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public bool Any(Expression<Func<TEntity, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return Queryable.Any(Context.Set<T>(), predicate);
+                return Context.Set<TEntity>().Any(predicate);
             }
-            return Queryable.Any<T>(Context.Set<T>());
+            return Context.Set<TEntity>().Any();
         }
 
         public void Dispose()

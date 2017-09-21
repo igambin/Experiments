@@ -9,7 +9,8 @@ using IG.XmlTools;
 
 namespace IG.Repository
 {
-    public class XmlRepository : IRepository
+    public class XmlRepository<TEntity> : IRepository<TEntity>
+        where TEntity : class
     {
         private readonly string _xmlLocation;
 
@@ -17,73 +18,72 @@ namespace IG.Repository
         {
             _xmlLocation = xmlLocation;
         }
-
-        public List<T> LoadXml<T>(string key) {
+        public List<TEntity> LoadXml(string key) {
 
             string path = Path.Combine(_xmlLocation, key);
 
             var input = File.ReadAllText(path, Encoding.UTF8);
 
-            var data = Serialization.Deserialize<List<T>>(input);
+            var data = Serialization.Deserialize<List<TEntity>>(input);
 
             return data;
         }
 
-        public IEnumerable<T> GetAll<T>() where T : class
+        public IEnumerable<TEntity> GetAll()
         {
-            var type = typeof(T);
+            var type = typeof(TEntity);
             var key = type.Name + ".xml";
 
             MemoryCaching cachable = new MemoryCaching();
 
-            List<T> _data = cachable.GetOrSet<List<T>>(key, () => LoadXml<T>(key));
+            List<TEntity> data = cachable.GetOrSet(key, () => LoadXml(key));
 
-            return _data;
+            return data;
         }
 
-        public IEnumerable<T> GetRecords<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public IEnumerable<TEntity> GetRecords(Expression<Func<TEntity, bool>> predicate = null) 
         {
             if (predicate != null)
             {
-                return GetAll<T>().Where(predicate.Compile());
+                return GetAll().Where(predicate.Compile());
             }
-            return GetAll<T>();
+            return GetAll();
         }
 
-        public IQueryable<T> GetQuery<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate = null) 
         {
             if (predicate != null)
             {
-                return GetAll<T>().AsQueryable().Where(predicate);
+                return GetAll().AsQueryable().Where(predicate);
             }
-            return GetAll<T>().AsQueryable();
+            return GetAll().AsQueryable();
         }
 
-        public T GetFirstOrDefault<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return GetAll<T>().FirstOrDefault(predicate.Compile());
+                return GetAll().FirstOrDefault(predicate.Compile());
             }
-            return GetAll<T>().FirstOrDefault();
+            return GetAll().FirstOrDefault();
         }
 
-        public int Count<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public int Count(Expression<Func<TEntity, bool>> predicate = null)
         {
             if (predicate != null)
             {
-                return GetAll<T>().Count(predicate.Compile());
+                return GetAll().Count(predicate.Compile());
             }
-            return GetAll<T>().Count();
+            return GetAll().Count();
         }
 
-        public bool Any<T>(Expression<Func<T, bool>> predicate = null) where T : class
+        public bool Any(Expression<Func<TEntity, bool>> predicate = null) 
         {
             if (predicate != null)
             {
-                return GetAll<T>().Any(predicate.Compile());
+                return GetAll().Any(predicate.Compile());
             }
-            return GetAll<T>().Any();
+            return GetAll().Any();
         }
 
     }

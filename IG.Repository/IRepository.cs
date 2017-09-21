@@ -5,17 +5,17 @@ using System.Linq.Expressions;
 
 namespace IG.Repository
 {
-    public interface IRepository
+    public interface IRepository<TEntity>
+        where TEntity : class
     {
+        IQueryable<TEntity> GetQuery(Expression<Func<TEntity, bool>> predicate = null);
 
-        IQueryable<T> GetQuery<T>(Expression<Func<T, bool>> predicate = null) where T : class;
+        IEnumerable<TEntity> GetRecords(Expression<Func<TEntity, bool>> predicate = null);
 
-        IEnumerable<T> GetRecords<T>(Expression<Func<T, bool>> predicate = null) where T : class;
+        TEntity GetFirstOrDefault(Expression<Func<TEntity, bool>> predicate = null);
 
-        T GetFirstOrDefault<T>(Expression<Func<T, bool>> predicate = null) where T : class;
+        int Count(Expression<Func<TEntity, bool>> predicate = null);
 
-        int Count<T>(Expression<Func<T, bool>> predicate = null) where T : class;
-
-        bool Any<T>(Expression<Func<T, bool>> predicate = null) where T : class;
+        bool Any(Expression<Func<TEntity, bool>> predicate = null);
     }
 }
